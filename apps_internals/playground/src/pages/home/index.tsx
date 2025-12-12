@@ -21,6 +21,15 @@ const Home = () => {
         radius="sm">
         Text
       </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/card"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Card
+      </Button>
     </div>
   )
 }
