@@ -12,9 +12,15 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
 
+const TextLazyRouteImport = createFileRoute('/text')()
 const ButtonLazyRouteImport = createFileRoute('/button')()
 const IndexLazyRouteImport = createFileRoute('/')()
 
+const TextLazyRoute = TextLazyRouteImport.update({
+  id: '/text',
+  path: '/text',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/text.lazy').then((d) => d.Route))
 const ButtonLazyRoute = ButtonLazyRouteImport.update({
   id: '/button',
   path: '/button',
@@ -29,31 +35,42 @@ const IndexLazyRoute = IndexLazyRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/button': typeof ButtonLazyRoute
+  '/text': typeof TextLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/button': typeof ButtonLazyRoute
+  '/text': typeof TextLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexLazyRoute
   '/button': typeof ButtonLazyRoute
+  '/text': typeof TextLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/button'
+  fullPaths: '/' | '/button' | '/text'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/button'
-  id: '__root__' | '/' | '/button'
+  to: '/' | '/button' | '/text'
+  id: '__root__' | '/' | '/button' | '/text'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   ButtonLazyRoute: typeof ButtonLazyRoute
+  TextLazyRoute: typeof TextLazyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/text': {
+      id: '/text'
+      path: '/text'
+      fullPath: '/text'
+      preLoaderRoute: typeof TextLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/button': {
       id: '/button'
       path: '/button'
@@ -74,6 +91,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   ButtonLazyRoute: ButtonLazyRoute,
+  TextLazyRoute: TextLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

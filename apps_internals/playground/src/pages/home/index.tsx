@@ -1,12 +1,26 @@
-import { useRouter } from '@tanstack/react-router'
-
-import { Button } from '@vezham/react/v2'
+import { Button, Link } from '@vezham/react/v2'
 
 const Home = () => {
-  const router = useRouter()
   return (
-    <div>
-      <Button onPress={() => router.navigate({ to: '/button' })}>Button</Button>
+    <div className="flex gap-3 p-5">
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/button"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Button
+      </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/text"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Text
+      </Button>
     </div>
   )
 }
