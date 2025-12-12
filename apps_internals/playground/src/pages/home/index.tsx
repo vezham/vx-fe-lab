@@ -30,6 +30,15 @@ const Home = () => {
         radius="sm">
         Card
       </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/table"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Table
+      </Button>
     </div>
   )
 }
