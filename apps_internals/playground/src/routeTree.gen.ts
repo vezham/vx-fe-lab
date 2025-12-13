@@ -12,12 +12,18 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
 
+const TimelineLazyRouteImport = createFileRoute('/timeline')()
 const TextLazyRouteImport = createFileRoute('/text')()
 const TableLazyRouteImport = createFileRoute('/table')()
 const CardLazyRouteImport = createFileRoute('/card')()
 const ButtonLazyRouteImport = createFileRoute('/button')()
 const IndexLazyRouteImport = createFileRoute('/')()
 
+const TimelineLazyRoute = TimelineLazyRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/timeline.lazy').then((d) => d.Route))
 const TextLazyRoute = TextLazyRouteImport.update({
   id: '/text',
   path: '/text',
@@ -50,6 +56,7 @@ export interface FileRoutesByFullPath {
   '/card': typeof CardLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
+  '/timeline': typeof TimelineLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByTo {
   '/card': typeof CardLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
+  '/timeline': typeof TimelineLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -65,13 +73,14 @@ export interface FileRoutesById {
   '/card': typeof CardLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
+  '/timeline': typeof TimelineLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/button' | '/card' | '/table' | '/text'
+  fullPaths: '/' | '/button' | '/card' | '/table' | '/text' | '/timeline'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/button' | '/card' | '/table' | '/text'
-  id: '__root__' | '/' | '/button' | '/card' | '/table' | '/text'
+  to: '/' | '/button' | '/card' | '/table' | '/text' | '/timeline'
+  id: '__root__' | '/' | '/button' | '/card' | '/table' | '/text' | '/timeline'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -80,10 +89,18 @@ export interface RootRouteChildren {
   CardLazyRoute: typeof CardLazyRoute
   TableLazyRoute: typeof TableLazyRoute
   TextLazyRoute: typeof TextLazyRoute
+  TimelineLazyRoute: typeof TimelineLazyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/timeline': {
+      id: '/timeline'
+      path: '/timeline'
+      fullPath: '/timeline'
+      preLoaderRoute: typeof TimelineLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/text': {
       id: '/text'
       path: '/text'
@@ -128,6 +145,7 @@ const rootRouteChildren: RootRouteChildren = {
   CardLazyRoute: CardLazyRoute,
   TableLazyRoute: TableLazyRoute,
   TextLazyRoute: TextLazyRoute,
+  TimelineLazyRoute: TimelineLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

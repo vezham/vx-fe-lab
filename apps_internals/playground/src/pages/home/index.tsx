@@ -39,6 +39,15 @@ const Home = () => {
         radius="sm">
         Table
       </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/timeline"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Timeline
+      </Button>
     </div>
   )
 }
