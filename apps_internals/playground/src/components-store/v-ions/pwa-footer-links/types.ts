@@ -9,9 +9,20 @@ import { SlotsToClasses } from '@vezham/react-utils'
 
 import { tvProps, tvSlots, tva } from './variant'
 
+export interface Link {
+  __type?: 'link' | 'button'
+  id?: string
+  className?: string
+  label?: string
+  url?: string
+  target?: string
+  onClick?: () => void
+}
+
 interface Props extends tvProps, HTMLHeroUIProps<'div'> {
   ref?: ReactRef<HTMLDivElement | null>
   classNames?: SlotsToClasses<tvSlots>
+  links?: Link[]
 }
 
 const useProps = (originalProps: Props) => {
@@ -24,7 +35,7 @@ const useProps = (originalProps: Props) => {
     children,
     className,
     classNames,
-    onClick,
+    links = [],
     ...otherProps
   } = props
 
@@ -37,14 +48,16 @@ const useProps = (originalProps: Props) => {
   const getBaseProps: PropGetter = () => ({
     id,
     ref: domRef,
-    className: slots.base({ class: cn(classNames?.base, className) }),
-    children,
-    onClick,
+    className: slots.base({
+      class: cn(classNames?.base, className)
+    }),
     ...otherProps
   })
 
-  const getIconProps: PropGetter = () => ({
-    className: slots.icon({ class: classNames?.icon })
+  const getLinkProps: PropGetter = () => ({
+    className: slots.link({
+      class: classNames?.link
+    })
   })
 
   return {
@@ -54,9 +67,10 @@ const useProps = (originalProps: Props) => {
     classNames,
     children,
     getBaseProps,
+    getLinkProps,
 
     // otherProps
-    getIconProps
+    links
   }
 }
 

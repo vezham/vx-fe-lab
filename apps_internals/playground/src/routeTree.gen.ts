@@ -15,6 +15,7 @@ import { Route as rootRouteImport } from './routes/__root'
 const TimelineLazyRouteImport = createFileRoute('/timeline')()
 const TextLazyRouteImport = createFileRoute('/text')()
 const TableLazyRouteImport = createFileRoute('/table')()
+const FooterLazyRouteImport = createFileRoute('/footer')()
 const CardLazyRouteImport = createFileRoute('/card')()
 const ButtonLazyRouteImport = createFileRoute('/button')()
 const IndexLazyRouteImport = createFileRoute('/')()
@@ -34,6 +35,11 @@ const TableLazyRoute = TableLazyRouteImport.update({
   path: '/table',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/table.lazy').then((d) => d.Route))
+const FooterLazyRoute = FooterLazyRouteImport.update({
+  id: '/footer',
+  path: '/footer',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/footer.lazy').then((d) => d.Route))
 const CardLazyRoute = CardLazyRouteImport.update({
   id: '/card',
   path: '/card',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/button': typeof ButtonLazyRoute
   '/card': typeof CardLazyRoute
+  '/footer': typeof FooterLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/button': typeof ButtonLazyRoute
   '/card': typeof CardLazyRoute
+  '/footer': typeof FooterLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
@@ -71,22 +79,39 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/button': typeof ButtonLazyRoute
   '/card': typeof CardLazyRoute
+  '/footer': typeof FooterLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/button' | '/card' | '/table' | '/text' | '/timeline'
+  fullPaths:
+    | '/'
+    | '/button'
+    | '/card'
+    | '/footer'
+    | '/table'
+    | '/text'
+    | '/timeline'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/button' | '/card' | '/table' | '/text' | '/timeline'
-  id: '__root__' | '/' | '/button' | '/card' | '/table' | '/text' | '/timeline'
+  to: '/' | '/button' | '/card' | '/footer' | '/table' | '/text' | '/timeline'
+  id:
+    | '__root__'
+    | '/'
+    | '/button'
+    | '/card'
+    | '/footer'
+    | '/table'
+    | '/text'
+    | '/timeline'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   ButtonLazyRoute: typeof ButtonLazyRoute
   CardLazyRoute: typeof CardLazyRoute
+  FooterLazyRoute: typeof FooterLazyRoute
   TableLazyRoute: typeof TableLazyRoute
   TextLazyRoute: typeof TextLazyRoute
   TimelineLazyRoute: typeof TimelineLazyRoute
@@ -113,6 +138,13 @@ declare module '@tanstack/react-router' {
       path: '/table'
       fullPath: '/table'
       preLoaderRoute: typeof TableLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/footer': {
+      id: '/footer'
+      path: '/footer'
+      fullPath: '/footer'
+      preLoaderRoute: typeof FooterLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/card': {
@@ -143,6 +175,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   ButtonLazyRoute: ButtonLazyRoute,
   CardLazyRoute: CardLazyRoute,
+  FooterLazyRoute: FooterLazyRoute,
   TableLazyRoute: TableLazyRoute,
   TextLazyRoute: TextLazyRoute,
   TimelineLazyRoute: TimelineLazyRoute,
