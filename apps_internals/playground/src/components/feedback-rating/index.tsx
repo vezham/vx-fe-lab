@@ -13,7 +13,8 @@ const FeedbackRating = forwardRef<'div', Props>((props, ref) => {
     icon,
     title,
     getTitleProps,
-    getRatingProps
+    getRatingProps,
+    getIconProps
   } = useProps({
     ...props,
     ref
@@ -27,9 +28,9 @@ const FeedbackRating = forwardRef<'div', Props>((props, ref) => {
         <Icon
           icon="mdi:star"
           key={index}
-          width={16}
-          height={16}
-          className={props.className}
+          width={24}
+          height={24}
+          {...getIconProps()}
         />
       )
     }
@@ -39,8 +40,8 @@ const FeedbackRating = forwardRef<'div', Props>((props, ref) => {
         <Icon
           icon="mdi:heart"
           key={index}
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
@@ -49,16 +50,16 @@ const FeedbackRating = forwardRef<'div', Props>((props, ref) => {
     template.push(
       <Icon
         icon="mdi:thumb-up"
-        width={16}
-        height={16}
+        width={24}
+        height={24}
         className={props.className}
       />
     )
     template.push(
       <Icon
         icon="mdi:thumb-down"
-        width={16}
-        height={16}
+        width={24}
+        height={24}
         className={props.className}
       />
     )
@@ -67,16 +68,16 @@ const FeedbackRating = forwardRef<'div', Props>((props, ref) => {
       template.push(
         <Icon
           icon="mdi:emoticon-sad"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
       template.push(
         <Icon
           icon="mdi:emoticon-happy"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
@@ -84,24 +85,24 @@ const FeedbackRating = forwardRef<'div', Props>((props, ref) => {
       template.push(
         <Icon
           icon="mdi:emoticon-sad"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
       template.push(
         <Icon
           icon="mdi:emoticon-happy"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
       template.push(
         <Icon
           icon="mdi:emoticon-excited"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
@@ -109,40 +110,40 @@ const FeedbackRating = forwardRef<'div', Props>((props, ref) => {
       template.push(
         <Icon
           icon="mdi:emoticon-angry"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
       template.push(
         <Icon
           icon="mdi:emoticon-sad"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
       template.push(
         <Icon
           icon="mdi:emoticon-happy"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
       template.push(
         <Icon
           icon="mdi:emoticon"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )
       template.push(
         <Icon
           icon="mdi:emoticon-happy"
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className={props.className}
         />
       )

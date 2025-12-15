@@ -6,7 +6,6 @@ import { Button, Chip, Image, Link } from '@vezham/react/v2'
 import { FeedbackRating } from '../feedback-rating'
 import { useDesktopLayoutProps } from './types'
 import { TimelineItem } from './types'
-import { tva } from './variant'
 
 interface DesktopLayoutProps {
   timeline: TimelineItem[]

@@ -68,6 +68,10 @@ const useProps = (originalProps: Props) => {
     className: slots.rating({ class: classNames?.rating })
   })
 
+  const getIconProps: PropGetter = () => ({
+    className: slots.icon({ class: classNames?.rating })
+  })
+
   return {
     Component,
     domRef,
@@ -82,7 +86,8 @@ const useProps = (originalProps: Props) => {
     scale,
     title,
     getTitleProps,
-    getRatingProps
+    getRatingProps,
+    getIconProps
   }
 }
 

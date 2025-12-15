@@ -13,7 +13,6 @@ import {
 import { FeedbackRating } from '../feedback-rating'
 import { useMobileLayoutProps } from './types'
 import { TimelineItem } from './types'
-import { tva } from './variant'
 
 interface MobileLayoutProps {
   timeline: TimelineItem[]

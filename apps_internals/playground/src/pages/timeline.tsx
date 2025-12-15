@@ -244,13 +244,8 @@ const Page = () => {
       <Timeline
         changelogs={changelogs}
         timeline={timeline}
-        selectedChangelogId="CX145A22A9QA0ROS"
-        onTabChange={id => console.log('Tab changed:', id)}
-        onContinueReading={(index, id) =>
-          console.log('Continue reading:', index, id)
-        }
-        device="desktop"
-        direction="ltr"
+        device="tablet"
+        direction="rtl"
         showRating={true}
         showReadMore={true}
       />

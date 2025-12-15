@@ -4,6 +4,7 @@ const tva = tv({
   slots: {
     base: ['vrating', 'relative', 'flex', 'items-center', 'gap-3'],
     title: ['text-default-400', 'text-sm', 'font-medium'],
+    icon: ['text-default-300', 'hover:text-warning'],
     rating: ['flex', 'gap-1']
   },
   variants: {
