@@ -1,6 +1,4 @@
-import React from 'react'
-
-import { Footer } from '../components/footers'
+import { Footer } from '../components/whatsnew-footer'
 
 const Page = () => {
   return (
