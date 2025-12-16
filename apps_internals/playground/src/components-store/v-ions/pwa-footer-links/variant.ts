@@ -3,7 +3,7 @@ import { VariantProps, tv } from '@vezham/react-utils'
 const tva = tv({
   slots: {
     base: 'flex w-full flex-row flex-wrap items-center justify-center',
-    link: 'hover:text-primary-foreground transition-colors duration-200'
+    link: 'hover:text-foreground text-foreground-400 transition-colors duration-200'
   },
   variants: {
     layout: {

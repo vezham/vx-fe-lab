@@ -7,7 +7,7 @@ import { usePersonalize } from '../../store/usePersonalize'
 const Footer = ({ brand_icon = true, ...props }: any) => {
   const { data: personal } = usePersonalize.list({})
 
-  const data_logo_url = personal?.brand?.avatar
+  const data_logo_url = personal?.brand?.avatar?.url
   const data_logo_icon = {
     icon: <Avatar src={personal?.brand?.avatar?.url} radius="none" />,
     label: personal?.brand?.label

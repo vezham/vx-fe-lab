@@ -3,7 +3,7 @@ import { Personalize } from './types'
 export const personalizationsData: Personalize[] = [
   {
     footer: {
-      backdrop: 'transparent',
+      backdrop: 'opaque',
       links: [
         {
           label: 'Home',

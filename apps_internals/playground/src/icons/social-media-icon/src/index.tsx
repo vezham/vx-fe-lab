@@ -41,14 +41,20 @@ const config: Record<Platform, string> = {
 const DEFAULT_ICON = 'mdi:help-circle-outline'
 
 const SocialMediaIcon = forwardRef<'div', Props>((props, ref) => {
-  const { getBaseProps, handler } = useProps({
+  const { getBaseProps, handler, iconBaseProps, iconProps } = useProps({
     ...props,
     ref
   })
 
   const iconName = config[handler.name] || DEFAULT_ICON
 
-  return <Icon width={24} height={24} icon={iconName} {...getBaseProps()} />
+  return (
+    <div {...getBaseProps()}>
+      <div {...iconBaseProps}>
+        <Icon icon={iconName} {...iconProps} />
+      </div>
+    </div>
+  )
 })
 
 SocialMediaIcon.displayName = 'SocialMediaIcon'

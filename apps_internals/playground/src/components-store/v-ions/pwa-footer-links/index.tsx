@@ -17,7 +17,7 @@ const PwaFooterLinks = forwardRef<'div', Props>((props, ref) => {
             key={i}
             id={data.id}
             href={data.url}
-            color="default"
+            color="foreground"
             size="sm"
             underline="hover"
             cursor={true}

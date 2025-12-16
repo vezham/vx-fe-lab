@@ -4,7 +4,7 @@ const tva = tv({
   slots: {
     base: 'flex flex-row items-center justify-center gap-2',
     text: 'text-default-400 text-sm',
-    logo: 'fill-default transition-colors duration-200',
+    logo: 'transition-colors duration-200',
     link: 'transition-all duration-200 hover:opacity-80 active:scale-95'
   },
   variants: {
@@ -75,7 +75,7 @@ const tva = tv({
       color: 'default',
       class: {
         text: 'text-default-400',
-        logo: 'fill-default hover:!fill-default-700'
+        logo: 'text-default-400 hover:text-neutral-900'
       }
     },
     {

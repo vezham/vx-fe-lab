@@ -2,7 +2,7 @@ import { VariantProps, tv } from '@vezham/react-utils'
 
 const tva = tv({
   slots: {
-    base: 'my-4 flex flex-row flex-wrap items-center justify-center gap-2',
+    base: 'my-2 flex flex-row flex-wrap items-center justify-center gap-2',
     logoContainer: 'flex items-center gap-2',
     logoImage: 'max-h-8 object-contain',
     logoIcon: 'flex items-center',
@@ -194,9 +194,9 @@ const tva = tv({
   ],
   defaultVariants: {
     layout: 'horizontal',
-    size: 'sm',
+    size: 'lg',
     color: 'default',
-    spacing: 'normal',
+    spacing: 'loose',
     showDivider: true
   }
 })

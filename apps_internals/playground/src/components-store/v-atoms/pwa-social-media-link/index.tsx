@@ -13,7 +13,7 @@ const PwaSocialMediaLink = forwardRef<'div', Props>((props, ref) => {
     <Component {...getBaseProps()}>
       {handles.map(handler => (
         <SocialMediaIcon
-          icon={{ size: 'sm', hover_effect: 'glow' }}
+          icon={{ size: 'sm', hoverEffect: 'glow' }}
           handler={handler}
         />
       ))}

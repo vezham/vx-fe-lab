@@ -30,10 +30,6 @@ const tva = tv({
     fullWidth: {
       true: '',
       false: ''
-    },
-    sticky: {
-      true: '',
-      false: ''
     }
   },
   compoundVariants: [
@@ -119,13 +115,7 @@ const tva = tv({
         base: 'mx-auto max-w-7xl rounded-xl'
       }
     },
-    // Sticky footer
-    {
-      sticky: true,
-      class: {
-        base: 'sticky bottom-0 z-50'
-      }
-    },
+
     // Text color variants based on backdrop
     {
       backdrop: 'opaque',
@@ -198,8 +188,7 @@ const tva = tv({
     backdrop: 'opaque',
     variant: 'default',
 
-    fullWidth: true,
-    sticky: false
+    fullWidth: false
   }
 })
 

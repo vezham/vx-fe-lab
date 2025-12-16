@@ -6,7 +6,7 @@ const tva = tv({
     categoryContainer: 'flex flex-col py-2',
     list: 'list-none',
     listItem: 'm-1 md:m-2 lg:m-2',
-    link: 'hover:text-default-700 transition-colors duration-200'
+    link: 'transition-colors duration-200'
   },
   variants: {
     layout: {

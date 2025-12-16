@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react'
 
 import { forwardRef } from '@vezham/react-utils'
+import { Image } from '@vezham/react/v2'
 
 import { Text } from '../text'
 import { Props, useProps } from './types'
@@ -16,7 +17,7 @@ const VezhamCraftedBy = forwardRef<'div', Props>((props, ref) => {
     <Component {...getBaseProps()}>
       <Text content={'Crafted By'} {...getTextProps()} />
       <a {...getLinkProps()}>
-        <Icon {...getLogoProps()} />
+        <Icon icon="mdi:mail" {...getLogoProps()} />
       </a>
     </Component>
   )
