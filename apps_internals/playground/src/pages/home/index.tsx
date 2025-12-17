@@ -66,6 +66,15 @@ const Home = () => {
         radius="sm">
         Footer - HeroUI
       </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/trending"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Trending
+      </Button>
     </div>
   )
 }

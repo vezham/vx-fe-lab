@@ -57,7 +57,7 @@ const useProps = (originalProps: Props) => {
     // Remove scroll-shadow props since we're handling scrolling ourselves for vertical orientation
     ...(originalProps.orientation === 'horizontal' && {
       orientation: 'horizontal' as const,
-      show_track: true
+      show_track: false
     })
   })
 

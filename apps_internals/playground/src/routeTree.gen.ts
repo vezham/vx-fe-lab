@@ -12,6 +12,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
 
+const TrendingLazyRouteImport = createFileRoute('/trending')()
 const TimelineLazyRouteImport = createFileRoute('/timeline')()
 const TextLazyRouteImport = createFileRoute('/text')()
 const TableLazyRouteImport = createFileRoute('/table')()
@@ -21,6 +22,11 @@ const CardLazyRouteImport = createFileRoute('/card')()
 const ButtonLazyRouteImport = createFileRoute('/button')()
 const IndexLazyRouteImport = createFileRoute('/')()
 
+const TrendingLazyRoute = TrendingLazyRouteImport.update({
+  id: '/trending',
+  path: '/trending',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/trending.lazy').then((d) => d.Route))
 const TimelineLazyRoute = TimelineLazyRouteImport.update({
   id: '/timeline',
   path: '/timeline',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
+  '/trending': typeof TrendingLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
+  '/trending': typeof TrendingLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
+  '/trending': typeof TrendingLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
     | '/table'
     | '/text'
     | '/timeline'
+    | '/trending'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -114,6 +124,7 @@ export interface FileRouteTypes {
     | '/table'
     | '/text'
     | '/timeline'
+    | '/trending'
   id:
     | '__root__'
     | '/'
@@ -124,6 +135,7 @@ export interface FileRouteTypes {
     | '/table'
     | '/text'
     | '/timeline'
+    | '/trending'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -135,10 +147,18 @@ export interface RootRouteChildren {
   TableLazyRoute: typeof TableLazyRoute
   TextLazyRoute: typeof TextLazyRoute
   TimelineLazyRoute: typeof TimelineLazyRoute
+  TrendingLazyRoute: typeof TrendingLazyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/trending': {
+      id: '/trending'
+      path: '/trending'
+      fullPath: '/trending'
+      preLoaderRoute: typeof TrendingLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/timeline': {
       id: '/timeline'
       path: '/timeline'
@@ -207,6 +227,7 @@ const rootRouteChildren: RootRouteChildren = {
   TableLazyRoute: TableLazyRoute,
   TextLazyRoute: TextLazyRoute,
   TimelineLazyRoute: TimelineLazyRoute,
+  TrendingLazyRoute: TrendingLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
