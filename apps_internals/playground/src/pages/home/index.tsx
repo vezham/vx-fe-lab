@@ -75,6 +75,15 @@ const Home = () => {
         radius="sm">
         Trending
       </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/header"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Header
+      </Button>
     </div>
   )
 }

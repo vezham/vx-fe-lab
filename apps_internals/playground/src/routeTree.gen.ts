@@ -16,6 +16,7 @@ const TrendingLazyRouteImport = createFileRoute('/trending')()
 const TimelineLazyRouteImport = createFileRoute('/timeline')()
 const TextLazyRouteImport = createFileRoute('/text')()
 const TableLazyRouteImport = createFileRoute('/table')()
+const HeaderLazyRouteImport = createFileRoute('/header')()
 const FootersLazyRouteImport = createFileRoute('/footers')()
 const FooterLazyRouteImport = createFileRoute('/footer')()
 const CardLazyRouteImport = createFileRoute('/card')()
@@ -42,6 +43,11 @@ const TableLazyRoute = TableLazyRouteImport.update({
   path: '/table',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/table.lazy').then((d) => d.Route))
+const HeaderLazyRoute = HeaderLazyRouteImport.update({
+  id: '/header',
+  path: '/header',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/header.lazy').then((d) => d.Route))
 const FootersLazyRoute = FootersLazyRouteImport.update({
   id: '/footers',
   path: '/footers',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/card': typeof CardLazyRoute
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
+  '/header': typeof HeaderLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/card': typeof CardLazyRoute
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
+  '/header': typeof HeaderLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/card': typeof CardLazyRoute
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
+  '/header': typeof HeaderLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/card'
     | '/footer'
     | '/footers'
+    | '/header'
     | '/table'
     | '/text'
     | '/timeline'
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/card'
     | '/footer'
     | '/footers'
+    | '/header'
     | '/table'
     | '/text'
     | '/timeline'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/card'
     | '/footer'
     | '/footers'
+    | '/header'
     | '/table'
     | '/text'
     | '/timeline'
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   CardLazyRoute: typeof CardLazyRoute
   FooterLazyRoute: typeof FooterLazyRoute
   FootersLazyRoute: typeof FootersLazyRoute
+  HeaderLazyRoute: typeof HeaderLazyRoute
   TableLazyRoute: typeof TableLazyRoute
   TextLazyRoute: typeof TextLazyRoute
   TimelineLazyRoute: typeof TimelineLazyRoute
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       path: '/table'
       fullPath: '/table'
       preLoaderRoute: typeof TableLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/header': {
+      id: '/header'
+      path: '/header'
+      fullPath: '/header'
+      preLoaderRoute: typeof HeaderLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/footers': {
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   CardLazyRoute: CardLazyRoute,
   FooterLazyRoute: FooterLazyRoute,
   FootersLazyRoute: FootersLazyRoute,
+  HeaderLazyRoute: HeaderLazyRoute,
   TableLazyRoute: TableLazyRoute,
   TextLazyRoute: TextLazyRoute,
   TimelineLazyRoute: TimelineLazyRoute,
