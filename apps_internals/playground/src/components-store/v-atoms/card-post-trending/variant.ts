@@ -58,7 +58,7 @@ const tva = tv({
     }
   ],
   defaultVariants: {
-    orientation: 'horizontal',
+    orientation: 'vertical',
     size: 'sm',
     device: 'desktop'
   }

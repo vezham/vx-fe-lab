@@ -142,7 +142,7 @@ const Page = () => {
         actions={actions}
         maxVisibleActions={3} // Show only 2 actions inline, rest in dropdown
         pagination={{
-          rowsPerPage: 5,
+          rowsPerPage: 10,
           rowsPerPageOptions: [5, 10, 20],
           showPagination: true,
           showRowsPerPage: true,

@@ -32,13 +32,11 @@ const tva = tv({
     }
   },
   defaultVariants: {
-    placement: 'top',
+    placement: 'bottom',
     size: 'sm'
   }
 })
-
 type tvProps = VariantProps<typeof tva>
 type tvSlots = keyof ReturnType<typeof tva>
-
 export { tva }
 export type { tvProps, tvSlots }

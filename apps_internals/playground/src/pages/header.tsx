@@ -14,7 +14,7 @@ const Page = () => {
         actions={headerActions}
         orientation="horizontal"
         position="left"
-        placement="top"
+        placement="bottom"
       />
     </>
   )

@@ -2,7 +2,7 @@ import { VariantProps, tv } from '@vezham/react-utils'
 
 const tva = tv({
   slots: {
-    base: 'z-50 w-full',
+    base: 'z-100 w-full',
     navbarBase: 'max-w-none',
     navbarWrapper: 'max-w-none',
     brand: 'flex items-center gap-2',
@@ -81,9 +81,7 @@ const tva = tv({
     variant: 'default'
   }
 })
-
 type tvProps = VariantProps<typeof tva>
 type tvSlots = keyof ReturnType<typeof tva>
-
 export { tva }
 export type { tvProps, tvSlots }

@@ -14,7 +14,6 @@ interface HeaderDrawerProps {
   closeDrawer: () => void
   drawerRef: RefObject<HTMLDivElement>
 }
-
 const HeaderDrawer = ({
   isOpen,
   onOpenChange,
@@ -72,14 +71,17 @@ const HeaderDrawer = ({
       </div>
     )
   }
-
   return (
     <Drawer
       isOpen={isOpen}
       onOpenChange={onOpenChange}
       placement={placement}
       size="sm"
-      className="hidden sm:block">
+      className={[
+        'hidden sm:block',
+        placement === 'top' && 'pt-16',
+        placement === 'bottom' && 'pb-12'
+      ]}>
       <DrawerContent ref={drawerRef}>
         {activeDrawerId && (
           <DrawerBody className="p-6">
@@ -95,5 +97,4 @@ const HeaderDrawer = ({
     </Drawer>
   )
 }
-
 export { HeaderDrawer }

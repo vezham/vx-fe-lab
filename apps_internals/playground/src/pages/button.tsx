@@ -19,11 +19,14 @@ const Page = () => {
         Submit
       </Button>
       <Button
-        startContent={<Icon icon="mdi-star" />}
+        endContent={<Icon icon="mdi-star" />}
         color="secondary"
-        variant="flat"
-        size="lg"
-        isIconOnly></Button>
+        variant="bordered"
+        isDisabled
+        fullWidth
+        size="lg">
+        Hey
+      </Button>
     </div>
   )
 }
