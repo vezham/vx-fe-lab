@@ -2,7 +2,7 @@ import { Button, Link } from '@vezham/react/v2'
 
 const Home = () => {
   return (
-    <div className="flex gap-3 p-5">
+    <div className="grid grid-cols-6 gap-3 p-5">
       <Button
         showAnchorIcon
         as={Link}
@@ -92,6 +92,24 @@ const Home = () => {
         color="secondary"
         radius="sm">
         Template - Notfound
+      </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/loading"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Loading
+      </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/lockscreen"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        LockScreen
       </Button>
     </div>
   )

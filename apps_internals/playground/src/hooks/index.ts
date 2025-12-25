@@ -1,6 +1,8 @@
 export * from './src/lib/useStore/src'
 export * from './src/lib/useString/src'
 export * from './src/lib/useLogger/src'
+export * from './src/lib/useBoolean/src'
+export * from './src/lib/useEffect/src'
 
 export const __DEV__ = process.env.NODE_ENV !== 'production'
 export const __TEST__ = process.env.NODE_ENV === 'test'

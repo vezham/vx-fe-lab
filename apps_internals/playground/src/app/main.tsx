@@ -6,6 +6,8 @@ import { APP_NAME } from '@vx/system-utils'
 // import { Loading, ErrorPage, NotFound } from '@vezham/templates'
 
 import { routeTree } from '../routeTree.gen'
+import { Loading } from '../templates/loading'
+import { Lockscreen } from '../templates/lockscreen'
 import { NotFound } from '../templates/not-found'
 import './global.css'
 
@@ -13,8 +15,8 @@ import './global.css'
 const router = createRouter({
   scrollRestoration: true,
   routeTree,
-  // defaultPendingComponent: () => <Loading />,
-  // defaultErrorComponent: () => <ErrorPage />,
+  defaultPendingComponent: () => <Loading />,
+  defaultErrorComponent: () => <Lockscreen />,
   defaultNotFoundComponent: () => <NotFound app={APP_NAME} />
 })
 
