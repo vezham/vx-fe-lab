@@ -44,7 +44,7 @@ jobs:
     needs: run_if
     if: ${{ needs.run_if.outputs.all == 'true' || needs.run_if.outputs.deploy == 'true' }}
     name: playground | ${{ github.ref_name }}
-    uses: vezham/vx-fe-deployer/.github/workflows/playground.yml@timeline
+    uses: vezham/vx-deployer/.github/workflows/playground.yml@timeline
     secrets: inherit
     with:
       CALLER: ${{ github.ref_name }}
@@ -53,7 +53,7 @@ jobs:
     needs: run_if
     if: ${{ needs.run_if.outputs.mocks == 'true' }}
     name: playground-mock | ${{ github.ref_name }}
-    uses: vezham/vx-fe-deployer/.github/workflows/playground-mock.yml@timeline
+    uses: vezham/vx-deployer/.github/workflows/playground-mock.yml@timeline
     secrets: inherit
     with:
       CALLER: ${{ github.ref_name }}
