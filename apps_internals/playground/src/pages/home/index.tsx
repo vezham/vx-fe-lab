@@ -84,6 +84,15 @@ const Home = () => {
         radius="sm">
         Header
       </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/notfound"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Template - Notfound
+      </Button>
     </div>
   )
 }

@@ -16,6 +16,7 @@ const TrendingLazyRouteImport = createFileRoute('/trending')()
 const TimelineLazyRouteImport = createFileRoute('/timeline')()
 const TextLazyRouteImport = createFileRoute('/text')()
 const TableLazyRouteImport = createFileRoute('/table')()
+const NotfoundLazyRouteImport = createFileRoute('/notfound')()
 const HeaderLazyRouteImport = createFileRoute('/header')()
 const FootersLazyRouteImport = createFileRoute('/footers')()
 const FooterLazyRouteImport = createFileRoute('/footer')()
@@ -43,6 +44,11 @@ const TableLazyRoute = TableLazyRouteImport.update({
   path: '/table',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/table.lazy').then((d) => d.Route))
+const NotfoundLazyRoute = NotfoundLazyRouteImport.update({
+  id: '/notfound',
+  path: '/notfound',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/notfound.lazy').then((d) => d.Route))
 const HeaderLazyRoute = HeaderLazyRouteImport.update({
   id: '/header',
   path: '/header',
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
   '/header': typeof HeaderLazyRoute
+  '/notfound': typeof NotfoundLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
   '/header': typeof HeaderLazyRoute
+  '/notfound': typeof NotfoundLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
   '/header': typeof HeaderLazyRoute
+  '/notfound': typeof NotfoundLazyRoute
   '/table': typeof TableLazyRoute
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/footer'
     | '/footers'
     | '/header'
+    | '/notfound'
     | '/table'
     | '/text'
     | '/timeline'
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/footer'
     | '/footers'
     | '/header'
+    | '/notfound'
     | '/table'
     | '/text'
     | '/timeline'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/footer'
     | '/footers'
     | '/header'
+    | '/notfound'
     | '/table'
     | '/text'
     | '/timeline'
@@ -157,6 +169,7 @@ export interface RootRouteChildren {
   FooterLazyRoute: typeof FooterLazyRoute
   FootersLazyRoute: typeof FootersLazyRoute
   HeaderLazyRoute: typeof HeaderLazyRoute
+  NotfoundLazyRoute: typeof NotfoundLazyRoute
   TableLazyRoute: typeof TableLazyRoute
   TextLazyRoute: typeof TextLazyRoute
   TimelineLazyRoute: typeof TimelineLazyRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       path: '/table'
       fullPath: '/table'
       preLoaderRoute: typeof TableLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notfound': {
+      id: '/notfound'
+      path: '/notfound'
+      fullPath: '/notfound'
+      preLoaderRoute: typeof NotfoundLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/header': {
@@ -245,6 +265,7 @@ const rootRouteChildren: RootRouteChildren = {
   FooterLazyRoute: FooterLazyRoute,
   FootersLazyRoute: FootersLazyRoute,
   HeaderLazyRoute: HeaderLazyRoute,
+  NotfoundLazyRoute: NotfoundLazyRoute,
   TableLazyRoute: TableLazyRoute,
   TextLazyRoute: TextLazyRoute,
   TimelineLazyRoute: TimelineLazyRoute,
