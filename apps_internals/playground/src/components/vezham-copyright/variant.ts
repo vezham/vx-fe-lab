@@ -2,7 +2,7 @@ import { VariantProps, tv } from '@vezham/react-utils'
 
 const tva = tv({
   slots: {
-    base: 'flex flex-col items-center text-center',
+    base: 'mt-2 flex flex-col items-center text-center',
     wrapper: 'text-default-400 flex items-center',
     logo: 'fill-default',
     link: 'text-default-400 hover:text-default-700 hover:fill-default-700 flex items-center transition-colors'

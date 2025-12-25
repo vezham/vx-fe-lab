@@ -35,6 +35,8 @@ const NotFound = forwardRef<'div', Props>((props, ref) => {
         variant="solid"
         color="primary"
         radius="full"
+        size="lg"
+        onClick={onClick}
         {...getButtonProps()}
       />
       <VezhamCopyright />

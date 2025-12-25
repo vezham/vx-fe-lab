@@ -8,7 +8,10 @@ import { Props } from '../layouts/sheet-illustration/types'
 const NotFoundIllustration: FC<Props> = props => {
   return (
     <SheetIllustration {...props}>
-      <Image src="https://fptsoftware.com/-/media/Project/FPT%20Software/FSO/Error-Page/404.png" />
+      <Image
+        src="https://fptsoftware.com/-/media/Project/FPT%20Software/FSO/Error-Page/404.png"
+        className="h-auto w-64 md:w-full"
+      />
     </SheetIllustration>
   )
 }

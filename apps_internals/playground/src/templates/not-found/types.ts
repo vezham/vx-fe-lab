@@ -19,7 +19,10 @@ interface Props extends tvProps, HTMLHeroUIProps<'div'> {
 }
 
 const useProps = (originalProps: Props) => {
-  const [props, variantProps] = mapPropsVariants(originalProps, tva.variantKeys)
+  const [props, variantProps] = mapPropsVariants(
+    originalProps,
+    tva.variantKeys as (keyof Props)[]
+  )
 
   const {
     as,
@@ -34,7 +37,6 @@ const useProps = (originalProps: Props) => {
         window.document.location.href = '/'
       }
     },
-    buttonProps = {},
     ...otherProps
   } = props
 
@@ -62,8 +64,7 @@ const useProps = (originalProps: Props) => {
 
   const getButtonProps: PropGetter = () => ({
     onClick,
-    children: 'Back to home',
-    ...buttonProps
+    children: 'Back to home'
   })
 
   return {
