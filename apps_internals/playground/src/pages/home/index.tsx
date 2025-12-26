@@ -1,8 +1,10 @@
 import { Button, Link } from '@vezham/react/v2'
 
+import { AutoLayout } from '../../layouts/v-auto-layout'
+
 const Home = () => {
   return (
-    <div className="grid grid-cols-6 gap-3 p-5">
+    <AutoLayout direction="horizontal" spacer="md">
       <Button
         showAnchorIcon
         as={Link}
@@ -111,7 +113,16 @@ const Home = () => {
         radius="sm">
         LockScreen
       </Button>
-    </div>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/heropage"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        Containerlayout
+      </Button>
+    </AutoLayout>
   )
 }
 

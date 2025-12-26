@@ -3,7 +3,7 @@ import { HeaderActionsProps, HeaderBrandProps, HeaderNavItem } from './types'
 export const headerBrand: HeaderBrandProps = {
   name: 'Vezham',
   href: '/',
-  logo: 'https://static.cdn.vezham.com/images/logo-black.png'
+  logo: 'https://static.cdn.vezham.com/images/logo-white.png'
 }
 
 export const headerNavItems: HeaderNavItem[] = [
