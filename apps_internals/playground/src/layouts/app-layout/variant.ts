@@ -15,11 +15,7 @@ const tva = tv({
       theme: 'light',
       class: {
         base: [
-          'bg-gradient-to-b',
-          'from-[rgb(234,234,234)]/20',
-          'to-[rgb(255,255,255)]',
-          'dark:from-[rgb(234,234,234)]/5',
-          'dark:to-[rgb(255,255,255)]/95'
+          'bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)]'
         ]
       }
     },
@@ -37,7 +33,7 @@ const tva = tv({
     }
   ],
   defaultVariants: {
-    theme: 'dark'
+    theme: 'light'
   }
 })
 

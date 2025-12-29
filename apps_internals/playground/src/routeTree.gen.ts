@@ -19,13 +19,24 @@ const TableLazyRouteImport = createFileRoute('/table')()
 const NotfoundLazyRouteImport = createFileRoute('/notfound')()
 const LockscreenLazyRouteImport = createFileRoute('/lockscreen')()
 const LoadingLazyRouteImport = createFileRoute('/loading')()
-const HeropageLazyRouteImport = createFileRoute('/heropage')()
 const HeaderLazyRouteImport = createFileRoute('/header')()
 const FootersLazyRouteImport = createFileRoute('/footers')()
 const FooterLazyRouteImport = createFileRoute('/footer')()
 const CardLazyRouteImport = createFileRoute('/card')()
 const ButtonLazyRouteImport = createFileRoute('/button')()
 const IndexLazyRouteImport = createFileRoute('/')()
+const AppsHeropageLazyRouteImport = createFileRoute('/apps/heropage')()
+const AppsAppsidebarpanelLazyRouteImport = createFileRoute(
+  '/apps/appsidebarpanel',
+)()
+const AppsAppsidebarmenuLazyRouteImport = createFileRoute(
+  '/apps/appsidebarmenu',
+)()
+const AppsAppsidebarcontainerLazyRouteImport = createFileRoute(
+  '/apps/appsidebarcontainer',
+)()
+const AppsAppsidebarLazyRouteImport = createFileRoute('/apps/appsidebar')()
+const AppsAppbgLazyRouteImport = createFileRoute('/apps/appbg')()
 
 const TrendingLazyRoute = TrendingLazyRouteImport.update({
   id: '/trending',
@@ -62,11 +73,6 @@ const LoadingLazyRoute = LoadingLazyRouteImport.update({
   path: '/loading',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/loading.lazy').then((d) => d.Route))
-const HeropageLazyRoute = HeropageLazyRouteImport.update({
-  id: '/heropage',
-  path: '/heropage',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/heropage.lazy').then((d) => d.Route))
 const HeaderLazyRoute = HeaderLazyRouteImport.update({
   id: '/header',
   path: '/header',
@@ -97,6 +103,45 @@ const IndexLazyRoute = IndexLazyRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+const AppsHeropageLazyRoute = AppsHeropageLazyRouteImport.update({
+  id: '/apps/heropage',
+  path: '/apps/heropage',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/apps/heropage.lazy').then((d) => d.Route))
+const AppsAppsidebarpanelLazyRoute = AppsAppsidebarpanelLazyRouteImport.update({
+  id: '/apps/appsidebarpanel',
+  path: '/apps/appsidebarpanel',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/apps/appsidebarpanel.lazy').then((d) => d.Route),
+)
+const AppsAppsidebarmenuLazyRoute = AppsAppsidebarmenuLazyRouteImport.update({
+  id: '/apps/appsidebarmenu',
+  path: '/apps/appsidebarmenu',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/apps/appsidebarmenu.lazy').then((d) => d.Route),
+)
+const AppsAppsidebarcontainerLazyRoute =
+  AppsAppsidebarcontainerLazyRouteImport.update({
+    id: '/apps/appsidebarcontainer',
+    path: '/apps/appsidebarcontainer',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/apps/appsidebarcontainer.lazy').then((d) => d.Route),
+  )
+const AppsAppsidebarLazyRoute = AppsAppsidebarLazyRouteImport.update({
+  id: '/apps/appsidebar',
+  path: '/apps/appsidebar',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/apps/appsidebar.lazy').then((d) => d.Route),
+)
+const AppsAppbgLazyRoute = AppsAppbgLazyRouteImport.update({
+  id: '/apps/appbg',
+  path: '/apps/appbg',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/apps/appbg.lazy').then((d) => d.Route))
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
@@ -105,7 +150,6 @@ export interface FileRoutesByFullPath {
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
   '/header': typeof HeaderLazyRoute
-  '/heropage': typeof HeropageLazyRoute
   '/loading': typeof LoadingLazyRoute
   '/lockscreen': typeof LockscreenLazyRoute
   '/notfound': typeof NotfoundLazyRoute
@@ -113,6 +157,12 @@ export interface FileRoutesByFullPath {
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
   '/trending': typeof TrendingLazyRoute
+  '/apps/appbg': typeof AppsAppbgLazyRoute
+  '/apps/appsidebar': typeof AppsAppsidebarLazyRoute
+  '/apps/appsidebarcontainer': typeof AppsAppsidebarcontainerLazyRoute
+  '/apps/appsidebarmenu': typeof AppsAppsidebarmenuLazyRoute
+  '/apps/appsidebarpanel': typeof AppsAppsidebarpanelLazyRoute
+  '/apps/heropage': typeof AppsHeropageLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
@@ -121,7 +171,6 @@ export interface FileRoutesByTo {
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
   '/header': typeof HeaderLazyRoute
-  '/heropage': typeof HeropageLazyRoute
   '/loading': typeof LoadingLazyRoute
   '/lockscreen': typeof LockscreenLazyRoute
   '/notfound': typeof NotfoundLazyRoute
@@ -129,6 +178,12 @@ export interface FileRoutesByTo {
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
   '/trending': typeof TrendingLazyRoute
+  '/apps/appbg': typeof AppsAppbgLazyRoute
+  '/apps/appsidebar': typeof AppsAppsidebarLazyRoute
+  '/apps/appsidebarcontainer': typeof AppsAppsidebarcontainerLazyRoute
+  '/apps/appsidebarmenu': typeof AppsAppsidebarmenuLazyRoute
+  '/apps/appsidebarpanel': typeof AppsAppsidebarpanelLazyRoute
+  '/apps/heropage': typeof AppsHeropageLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -138,7 +193,6 @@ export interface FileRoutesById {
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
   '/header': typeof HeaderLazyRoute
-  '/heropage': typeof HeropageLazyRoute
   '/loading': typeof LoadingLazyRoute
   '/lockscreen': typeof LockscreenLazyRoute
   '/notfound': typeof NotfoundLazyRoute
@@ -146,6 +200,12 @@ export interface FileRoutesById {
   '/text': typeof TextLazyRoute
   '/timeline': typeof TimelineLazyRoute
   '/trending': typeof TrendingLazyRoute
+  '/apps/appbg': typeof AppsAppbgLazyRoute
+  '/apps/appsidebar': typeof AppsAppsidebarLazyRoute
+  '/apps/appsidebarcontainer': typeof AppsAppsidebarcontainerLazyRoute
+  '/apps/appsidebarmenu': typeof AppsAppsidebarmenuLazyRoute
+  '/apps/appsidebarpanel': typeof AppsAppsidebarpanelLazyRoute
+  '/apps/heropage': typeof AppsHeropageLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -156,7 +216,6 @@ export interface FileRouteTypes {
     | '/footer'
     | '/footers'
     | '/header'
-    | '/heropage'
     | '/loading'
     | '/lockscreen'
     | '/notfound'
@@ -164,6 +223,12 @@ export interface FileRouteTypes {
     | '/text'
     | '/timeline'
     | '/trending'
+    | '/apps/appbg'
+    | '/apps/appsidebar'
+    | '/apps/appsidebarcontainer'
+    | '/apps/appsidebarmenu'
+    | '/apps/appsidebarpanel'
+    | '/apps/heropage'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -172,7 +237,6 @@ export interface FileRouteTypes {
     | '/footer'
     | '/footers'
     | '/header'
-    | '/heropage'
     | '/loading'
     | '/lockscreen'
     | '/notfound'
@@ -180,6 +244,12 @@ export interface FileRouteTypes {
     | '/text'
     | '/timeline'
     | '/trending'
+    | '/apps/appbg'
+    | '/apps/appsidebar'
+    | '/apps/appsidebarcontainer'
+    | '/apps/appsidebarmenu'
+    | '/apps/appsidebarpanel'
+    | '/apps/heropage'
   id:
     | '__root__'
     | '/'
@@ -188,7 +258,6 @@ export interface FileRouteTypes {
     | '/footer'
     | '/footers'
     | '/header'
-    | '/heropage'
     | '/loading'
     | '/lockscreen'
     | '/notfound'
@@ -196,6 +265,12 @@ export interface FileRouteTypes {
     | '/text'
     | '/timeline'
     | '/trending'
+    | '/apps/appbg'
+    | '/apps/appsidebar'
+    | '/apps/appsidebarcontainer'
+    | '/apps/appsidebarmenu'
+    | '/apps/appsidebarpanel'
+    | '/apps/heropage'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -205,7 +280,6 @@ export interface RootRouteChildren {
   FooterLazyRoute: typeof FooterLazyRoute
   FootersLazyRoute: typeof FootersLazyRoute
   HeaderLazyRoute: typeof HeaderLazyRoute
-  HeropageLazyRoute: typeof HeropageLazyRoute
   LoadingLazyRoute: typeof LoadingLazyRoute
   LockscreenLazyRoute: typeof LockscreenLazyRoute
   NotfoundLazyRoute: typeof NotfoundLazyRoute
@@ -213,6 +287,12 @@ export interface RootRouteChildren {
   TextLazyRoute: typeof TextLazyRoute
   TimelineLazyRoute: typeof TimelineLazyRoute
   TrendingLazyRoute: typeof TrendingLazyRoute
+  AppsAppbgLazyRoute: typeof AppsAppbgLazyRoute
+  AppsAppsidebarLazyRoute: typeof AppsAppsidebarLazyRoute
+  AppsAppsidebarcontainerLazyRoute: typeof AppsAppsidebarcontainerLazyRoute
+  AppsAppsidebarmenuLazyRoute: typeof AppsAppsidebarmenuLazyRoute
+  AppsAppsidebarpanelLazyRoute: typeof AppsAppsidebarpanelLazyRoute
+  AppsHeropageLazyRoute: typeof AppsHeropageLazyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -266,13 +346,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoadingLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/heropage': {
-      id: '/heropage'
-      path: '/heropage'
-      fullPath: '/heropage'
-      preLoaderRoute: typeof HeropageLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/header': {
       id: '/header'
       path: '/header'
@@ -315,6 +388,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apps/heropage': {
+      id: '/apps/heropage'
+      path: '/apps/heropage'
+      fullPath: '/apps/heropage'
+      preLoaderRoute: typeof AppsHeropageLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apps/appsidebarpanel': {
+      id: '/apps/appsidebarpanel'
+      path: '/apps/appsidebarpanel'
+      fullPath: '/apps/appsidebarpanel'
+      preLoaderRoute: typeof AppsAppsidebarpanelLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apps/appsidebarmenu': {
+      id: '/apps/appsidebarmenu'
+      path: '/apps/appsidebarmenu'
+      fullPath: '/apps/appsidebarmenu'
+      preLoaderRoute: typeof AppsAppsidebarmenuLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apps/appsidebarcontainer': {
+      id: '/apps/appsidebarcontainer'
+      path: '/apps/appsidebarcontainer'
+      fullPath: '/apps/appsidebarcontainer'
+      preLoaderRoute: typeof AppsAppsidebarcontainerLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apps/appsidebar': {
+      id: '/apps/appsidebar'
+      path: '/apps/appsidebar'
+      fullPath: '/apps/appsidebar'
+      preLoaderRoute: typeof AppsAppsidebarLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apps/appbg': {
+      id: '/apps/appbg'
+      path: '/apps/appbg'
+      fullPath: '/apps/appbg'
+      preLoaderRoute: typeof AppsAppbgLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -325,7 +440,6 @@ const rootRouteChildren: RootRouteChildren = {
   FooterLazyRoute: FooterLazyRoute,
   FootersLazyRoute: FootersLazyRoute,
   HeaderLazyRoute: HeaderLazyRoute,
-  HeropageLazyRoute: HeropageLazyRoute,
   LoadingLazyRoute: LoadingLazyRoute,
   LockscreenLazyRoute: LockscreenLazyRoute,
   NotfoundLazyRoute: NotfoundLazyRoute,
@@ -333,6 +447,12 @@ const rootRouteChildren: RootRouteChildren = {
   TextLazyRoute: TextLazyRoute,
   TimelineLazyRoute: TimelineLazyRoute,
   TrendingLazyRoute: TrendingLazyRoute,
+  AppsAppbgLazyRoute: AppsAppbgLazyRoute,
+  AppsAppsidebarLazyRoute: AppsAppsidebarLazyRoute,
+  AppsAppsidebarcontainerLazyRoute: AppsAppsidebarcontainerLazyRoute,
+  AppsAppsidebarmenuLazyRoute: AppsAppsidebarmenuLazyRoute,
+  AppsAppsidebarpanelLazyRoute: AppsAppsidebarpanelLazyRoute,
+  AppsHeropageLazyRoute: AppsHeropageLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

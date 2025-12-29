@@ -116,11 +116,56 @@ const Home = () => {
       <Button
         showAnchorIcon
         as={Link}
-        href="/heropage"
+        href="/apps/heropage"
         variant="flat"
         color="secondary"
         radius="sm">
         Containerlayout
+      </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/apps/appbg"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        AppBg
+      </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/apps/appsidebar"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        AppSidebar
+      </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/apps/appsidebarcontainer"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        AppSidebarContainer
+      </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/apps/appsidebarmenu"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        AppSidebarMenu
+      </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/apps/appsidebarpanel"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        AppSidebarPanel
       </Button>
     </AutoLayout>
   )
