@@ -26,7 +26,6 @@ const FooterLazyRouteImport = createFileRoute('/footer')()
 const CardLazyRouteImport = createFileRoute('/card')()
 const ButtonLazyRouteImport = createFileRoute('/button')()
 const IndexLazyRouteImport = createFileRoute('/')()
-const AppsHeropageLazyRouteImport = createFileRoute('/apps/heropage')()
 const AppsAppsidebarpanelLazyRouteImport = createFileRoute(
   '/apps/appsidebarpanel',
 )()
@@ -109,11 +108,6 @@ const IndexLazyRoute = IndexLazyRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
-const AppsHeropageLazyRoute = AppsHeropageLazyRouteImport.update({
-  id: '/apps/heropage',
-  path: '/apps/heropage',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/apps/heropage.lazy').then((d) => d.Route))
 const AppsAppsidebarpanelLazyRoute = AppsAppsidebarpanelLazyRouteImport.update({
   id: '/apps/appsidebarpanel',
   path: '/apps/appsidebarpanel',
@@ -169,7 +163,6 @@ export interface FileRoutesByFullPath {
   '/apps/appsidebarcontainer': typeof AppsAppsidebarcontainerLazyRoute
   '/apps/appsidebarmenu': typeof AppsAppsidebarmenuLazyRoute
   '/apps/appsidebarpanel': typeof AppsAppsidebarpanelLazyRoute
-  '/apps/heropage': typeof AppsHeropageLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
@@ -191,7 +184,6 @@ export interface FileRoutesByTo {
   '/apps/appsidebarcontainer': typeof AppsAppsidebarcontainerLazyRoute
   '/apps/appsidebarmenu': typeof AppsAppsidebarmenuLazyRoute
   '/apps/appsidebarpanel': typeof AppsAppsidebarpanelLazyRoute
-  '/apps/heropage': typeof AppsHeropageLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -214,7 +206,6 @@ export interface FileRoutesById {
   '/apps/appsidebarcontainer': typeof AppsAppsidebarcontainerLazyRoute
   '/apps/appsidebarmenu': typeof AppsAppsidebarmenuLazyRoute
   '/apps/appsidebarpanel': typeof AppsAppsidebarpanelLazyRoute
-  '/apps/heropage': typeof AppsHeropageLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -238,7 +229,6 @@ export interface FileRouteTypes {
     | '/apps/appsidebarcontainer'
     | '/apps/appsidebarmenu'
     | '/apps/appsidebarpanel'
-    | '/apps/heropage'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -260,7 +250,6 @@ export interface FileRouteTypes {
     | '/apps/appsidebarcontainer'
     | '/apps/appsidebarmenu'
     | '/apps/appsidebarpanel'
-    | '/apps/heropage'
   id:
     | '__root__'
     | '/'
@@ -282,7 +271,6 @@ export interface FileRouteTypes {
     | '/apps/appsidebarcontainer'
     | '/apps/appsidebarmenu'
     | '/apps/appsidebarpanel'
-    | '/apps/heropage'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -305,7 +293,6 @@ export interface RootRouteChildren {
   AppsAppsidebarcontainerLazyRoute: typeof AppsAppsidebarcontainerLazyRoute
   AppsAppsidebarmenuLazyRoute: typeof AppsAppsidebarmenuLazyRoute
   AppsAppsidebarpanelLazyRoute: typeof AppsAppsidebarpanelLazyRoute
-  AppsHeropageLazyRoute: typeof AppsHeropageLazyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -408,13 +395,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/apps/heropage': {
-      id: '/apps/heropage'
-      path: '/apps/heropage'
-      fullPath: '/apps/heropage'
-      preLoaderRoute: typeof AppsHeropageLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/apps/appsidebarpanel': {
       id: '/apps/appsidebarpanel'
       path: '/apps/appsidebarpanel'
@@ -473,7 +453,6 @@ const rootRouteChildren: RootRouteChildren = {
   AppsAppsidebarcontainerLazyRoute: AppsAppsidebarcontainerLazyRoute,
   AppsAppsidebarmenuLazyRoute: AppsAppsidebarmenuLazyRoute,
   AppsAppsidebarpanelLazyRoute: AppsAppsidebarpanelLazyRoute,
-  AppsHeropageLazyRoute: AppsHeropageLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
