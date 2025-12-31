@@ -15,30 +15,31 @@ import {
 
 import { HeaderAccordion } from './accordion'
 import { HeaderDrawer } from './drawer'
-import { Props, useProps } from './types'
+import { HeaderProps, useProps } from './types'
 
-const Header = forwardRef<'nav', Props>((props, ref) => {
+const Header = forwardRef<'nav', HeaderProps>((props, ref) => {
   const {
     Component,
     getBaseProps,
+    getNavItemProps,
+    getBrandProps,
+    getActionsProps,
     brand,
     nav,
     actions,
     slots,
     classNames,
-    variantProps,
-    getNavItemProps,
-    getBrandProps,
-    getActionsProps
+    variantProps
   } = useProps({ ...props, ref })
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDrawerId, setActiveDrawerId] = useState<string | null>(null)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+
   const drawerRef = useRef<HTMLDivElement>(null)
   const navItemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
 
-  const defaultActiveId = useMemo(() => nav?.items?.[0]?.id, [nav?.items])
+  const defaultActiveId = useMemo(() => nav?.[0]?.id, [nav])
   const [activeId, setActiveId] = useState<string | undefined>(defaultActiveId)
 
   const handleNavItemClick = (itemId: string, item: any) => {
@@ -61,23 +62,21 @@ const Header = forwardRef<'nav', Props>((props, ref) => {
   }
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handler = (e: MouseEvent) => {
       if (
         isDrawerOpen &&
         drawerRef.current &&
-        !drawerRef.current.contains(event.target as Node) &&
-        !Array.from(navItemRefs.current.values()).some(
-          ref => ref && ref.contains(event.target as Node)
+        !drawerRef.current.contains(e.target as Node) &&
+        !Array.from(navItemRefs.current.values()).some(el =>
+          el.contains(e.target as Node)
         )
       ) {
         closeDrawer()
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
   }, [isDrawerOpen])
 
   return (
@@ -89,7 +88,6 @@ const Header = forwardRef<'nav', Props>((props, ref) => {
           base: slots.navbarBase({ class: classNames?.navbarBase }),
           wrapper: slots.navbarWrapper({ class: classNames?.navbarWrapper })
         }}>
-        {/* Mobile menu toggle */}
         <NavbarContent
           className={slots.mobileToggle({ class: classNames?.mobileToggle })}>
           <NavbarMenuToggle />
@@ -101,14 +99,19 @@ const Header = forwardRef<'nav', Props>((props, ref) => {
               <Link href={brand.href}>
                 {brand.logo ? (
                   typeof brand.logo === 'string' ? (
-                    brand.logo.startsWith('http') ? (
-                      <img
-                        src={brand.logo}
-                        alt={brand.name ?? 'Logo'}
-                        className={slots.brandImage({
-                          class: classNames?.brandImage
-                        })}
-                      />
+                    brand.logo.startsWith('http') ||
+                    brand.logo.startsWith('/') ||
+                    /\.(png|jpe?g|svg|webp)$/.test(brand.logo) ? (
+                      <>
+                        <img
+                          sizes="sm"
+                          src={brand.logo}
+                          alt={brand.name ?? 'Logo'}
+                          className={slots.brandImage({
+                            class: classNames?.brandImage
+                          })}
+                        />
+                      </>
                     ) : (
                       <Icon
                         icon={brand.logo}
@@ -133,15 +136,14 @@ const Header = forwardRef<'nav', Props>((props, ref) => {
           </div>
         )}
 
-        {nav?.items && nav.items.length > 0 && (
+        {nav && nav.length > 0 && (
           <div {...getNavItemProps()}>
-            {nav.items.map(item => {
+            {nav.map(item => {
               const isActive = activeId === item.id
               const isGrid = item.type === 'grid'
               const isLink = item.type === 'link'
               const isDrawerActive = activeDrawerId === item.id && isDrawerOpen
 
-              // Logic for styling based on type and active state
               const itemColorClass =
                 isLink || isGrid
                   ? isActive || isDrawerActive
@@ -197,7 +199,6 @@ const Header = forwardRef<'nav', Props>((props, ref) => {
                 )
               }
 
-              // Fallback for "Other" types
               return (
                 <NavbarItem key={item.id} className="opacity-70">
                   <span
@@ -210,23 +211,25 @@ const Header = forwardRef<'nav', Props>((props, ref) => {
           </div>
         )}
 
-        {actions?.actions && actions.actions.length > 0 && (
+        {actions && actions.length > 0 && (
           <div {...getActionsProps()}>
-            {actions.actions.map(action => (
+            {actions.map(action => (
               <NavbarItem key={action.id}>
                 {action.href ? (
-                  <Link
+                  <Button
+                    color="primary"
+                    variant="bordered"
                     href={action.href}
                     className={slots.actionLink({
                       class: classNames?.actionLink
                     })}>
                     {action.label}
-                  </Link>
+                  </Button>
                 ) : (
                   <Button
                     onClick={action.onClick}
                     color="primary"
-                    variant="flat"
+                    variant="solid"
                     className={slots.actionButton({
                       class: classNames?.actionButton
                     })}>
@@ -252,9 +255,10 @@ const Header = forwardRef<'nav', Props>((props, ref) => {
         />
 
         {/* Mobile Menu */}
-        <NavbarMenu className={slots.menu({ class: classNames?.menu })}>
+        <NavbarMenu>
           <HeaderAccordion
             nav={nav}
+            actions={actions}
             activeId={activeId}
             setActiveId={setActiveId}
             closeMenu={() => setIsMenuOpen(false)}

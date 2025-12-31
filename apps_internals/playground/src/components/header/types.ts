@@ -24,12 +24,6 @@ export interface HeaderNavLinkItem extends HeaderNavBaseItem {
   href: string
 }
 
-export interface HeaderNavGridItem extends HeaderNavBaseItem {
-  type: 'grid'
-  columns?: number
-  items: HeaderNavGridColumn[]
-}
-
 export interface HeaderNavGridColumn {
   id: string
   title?: string
@@ -40,19 +34,18 @@ export interface HeaderNavGridColumn {
   }
 }
 
-export type HeaderNavItem = HeaderNavLinkItem | HeaderNavGridItem
-export type HeaderPosition = 'left' | 'right'
-export type HeaderOrientation = 'horizontal' | 'vertical'
-export type HeaderPlacement = 'top' | 'bottom'
-
-export interface HeaderBrandProps {
-  logo?: ReactNode
-  name?: string
-  href?: string
+export interface HeaderNavGridItem extends HeaderNavBaseItem {
+  type: 'grid'
+  columns?: number
+  items: HeaderNavGridColumn[]
 }
 
-export interface HeaderNavProps {
-  items: HeaderNavItem[]
+export type HeaderNavItem = HeaderNavLinkItem | HeaderNavGridItem
+
+export interface HeaderBrandProps {
+  logo?: ReactNode | string
+  name?: string
+  href?: string
 }
 
 export interface HeaderActionItem {
@@ -62,17 +55,17 @@ export interface HeaderActionItem {
   onClick?: () => void
 }
 
-export interface HeaderActionsProps {
-  actions: HeaderActionItem[]
-}
+export type HeaderPosition = 'left' | 'right'
+export type HeaderOrientation = 'horizontal' | 'vertical'
+export type HeaderPlacement = 'top' | 'bottom'
+export type HeaderItems = 3 | 4 | 5
 
-export interface Props
-  extends Omit<HTMLHeroUIProps<'nav'>, 'content'>,
-    tvProps {
+interface HeaderProps extends Omit<HTMLHeroUIProps<'nav'>, 'content'>, tvProps {
   ref?: ReactRef<HTMLElement | null>
   brand?: HeaderBrandProps
-  nav?: HeaderNavProps
-  actions?: HeaderActionsProps
+  nav?: HeaderNavItem[]
+  actions?: HeaderActionItem[]
+  items: HeaderItems
   orientation?: HeaderOrientation
   position?: HeaderPosition
   placement?: HeaderPlacement
@@ -96,7 +89,6 @@ const useProps = (originalProps: Props) => {
 
   const Component = as || 'nav'
   const domRef = useDOMRef(ref)
-
   const slots = tva(variantProps)
 
   const getBaseProps: PropGetter = () => ({
@@ -119,10 +111,8 @@ const useProps = (originalProps: Props) => {
   const getActionsProps: PropGetter = () => ({
     className: slots.actions({ class: classNames?.actions })
   })
-
   return {
     Component,
-    domRef,
     slots,
     classNames,
     brand,
@@ -137,4 +127,4 @@ const useProps = (originalProps: Props) => {
 }
 
 export { useProps }
-export type { Props }
+export type { HeaderProps }

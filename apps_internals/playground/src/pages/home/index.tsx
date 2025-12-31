@@ -167,6 +167,15 @@ const Home = () => {
         radius="sm">
         AppSidebarPanel
       </Button>
+      <Button
+        showAnchorIcon
+        as={Link}
+        href="/land"
+        variant="flat"
+        color="secondary"
+        radius="sm">
+        LandingPage
+      </Button>
     </AutoLayout>
   )
 }

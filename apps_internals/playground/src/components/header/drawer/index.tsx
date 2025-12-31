@@ -3,17 +3,18 @@ import { RefObject } from 'react'
 
 import { Drawer, DrawerBody, DrawerContent, Link } from '@vezham/react/v2'
 
-import { HeaderNavProps } from '../types'
+import { HeaderNavItem } from '../types'
 
 interface HeaderDrawerProps {
   isOpen: boolean
   onOpenChange: (open: boolean) => void
   placement: 'top' | 'bottom'
   activeDrawerId: string | null
-  nav?: HeaderNavProps
+  nav?: HeaderNavItem[]
   closeDrawer: () => void
   drawerRef: RefObject<HTMLDivElement>
 }
+
 const HeaderDrawer = ({
   isOpen,
   onOpenChange,
@@ -23,22 +24,30 @@ const HeaderDrawer = ({
   closeDrawer,
   drawerRef
 }: HeaderDrawerProps) => {
-  const renderDrawerContent = (item: any) => {
+  const activeItem = nav?.find(
+    item => item.id === activeDrawerId && item.type === 'grid'
+  )
+
+  if (!activeItem || activeItem.type !== 'grid') return null
+
+  const renderDrawerContent = (item: HeaderNavItem & { type: 'grid' }) => {
     return (
       <div>
         <div className="mb-6">
           <h3 className="text-xl font-semibold">{item.label}</h3>
         </div>
+
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {item.items.map((column: any) => (
+          {item.items.map(column => (
             <div key={column.id} className="space-y-4">
               {column.title && (
                 <h4 className="text-default-700 text-base font-medium">
                   {column.title}
                 </h4>
               )}
+
               <ul className="space-y-1">
-                {column.items.slice(0, 5).map((subItem: any) => (
+                {column.items.slice(0, 5).map(subItem => (
                   <li key={subItem.id}>
                     <Link
                       href={subItem.href}
@@ -54,11 +63,12 @@ const HeaderDrawer = ({
                   </li>
                 ))}
               </ul>
+
               {column.items.length > 5 && column.showMoreLink && (
                 <div className="border-default-200 mt-3 border-t p-3">
                   <Link
                     href={column.showMoreLink.href}
-                    className="text-primary hover:text-primary-600 inline-flex items-center text-sm font-medium"
+                    className="text-primary inline-flex items-center text-sm font-medium"
                     onClick={closeDrawer}>
                     {column.showMoreLink.label}
                     <Icon icon="mdi:chevron-right" className="ml-1" />
@@ -71,6 +81,7 @@ const HeaderDrawer = ({
       </div>
     )
   }
+
   return (
     <Drawer
       isOpen={isOpen}
@@ -83,18 +94,12 @@ const HeaderDrawer = ({
         placement === 'bottom' && 'pb-12'
       ]}>
       <DrawerContent ref={drawerRef}>
-        {activeDrawerId && (
-          <DrawerBody className="p-6">
-            {(() => {
-              const item = nav?.items.find(item => item.id === activeDrawerId)
-              return item && item.type === 'grid'
-                ? renderDrawerContent(item)
-                : null
-            })()}
-          </DrawerBody>
-        )}
+        <DrawerBody className="p-6">
+          {renderDrawerContent(activeItem)}
+        </DrawerBody>
       </DrawerContent>
     </Drawer>
   )
 }
+
 export { HeaderDrawer }

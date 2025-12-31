@@ -19,6 +19,7 @@ const TableLazyRouteImport = createFileRoute('/table')()
 const NotfoundLazyRouteImport = createFileRoute('/notfound')()
 const LockscreenLazyRouteImport = createFileRoute('/lockscreen')()
 const LoadingLazyRouteImport = createFileRoute('/loading')()
+const LandLazyRouteImport = createFileRoute('/land')()
 const HeaderLazyRouteImport = createFileRoute('/header')()
 const FootersLazyRouteImport = createFileRoute('/footers')()
 const FooterLazyRouteImport = createFileRoute('/footer')()
@@ -73,6 +74,11 @@ const LoadingLazyRoute = LoadingLazyRouteImport.update({
   path: '/loading',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/loading.lazy').then((d) => d.Route))
+const LandLazyRoute = LandLazyRouteImport.update({
+  id: '/land',
+  path: '/land',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/land.lazy').then((d) => d.Route))
 const HeaderLazyRoute = HeaderLazyRouteImport.update({
   id: '/header',
   path: '/header',
@@ -150,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
   '/header': typeof HeaderLazyRoute
+  '/land': typeof LandLazyRoute
   '/loading': typeof LoadingLazyRoute
   '/lockscreen': typeof LockscreenLazyRoute
   '/notfound': typeof NotfoundLazyRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
   '/header': typeof HeaderLazyRoute
+  '/land': typeof LandLazyRoute
   '/loading': typeof LoadingLazyRoute
   '/lockscreen': typeof LockscreenLazyRoute
   '/notfound': typeof NotfoundLazyRoute
@@ -193,6 +201,7 @@ export interface FileRoutesById {
   '/footer': typeof FooterLazyRoute
   '/footers': typeof FootersLazyRoute
   '/header': typeof HeaderLazyRoute
+  '/land': typeof LandLazyRoute
   '/loading': typeof LoadingLazyRoute
   '/lockscreen': typeof LockscreenLazyRoute
   '/notfound': typeof NotfoundLazyRoute
@@ -216,6 +225,7 @@ export interface FileRouteTypes {
     | '/footer'
     | '/footers'
     | '/header'
+    | '/land'
     | '/loading'
     | '/lockscreen'
     | '/notfound'
@@ -237,6 +247,7 @@ export interface FileRouteTypes {
     | '/footer'
     | '/footers'
     | '/header'
+    | '/land'
     | '/loading'
     | '/lockscreen'
     | '/notfound'
@@ -258,6 +269,7 @@ export interface FileRouteTypes {
     | '/footer'
     | '/footers'
     | '/header'
+    | '/land'
     | '/loading'
     | '/lockscreen'
     | '/notfound'
@@ -280,6 +292,7 @@ export interface RootRouteChildren {
   FooterLazyRoute: typeof FooterLazyRoute
   FootersLazyRoute: typeof FootersLazyRoute
   HeaderLazyRoute: typeof HeaderLazyRoute
+  LandLazyRoute: typeof LandLazyRoute
   LoadingLazyRoute: typeof LoadingLazyRoute
   LockscreenLazyRoute: typeof LockscreenLazyRoute
   NotfoundLazyRoute: typeof NotfoundLazyRoute
@@ -344,6 +357,13 @@ declare module '@tanstack/react-router' {
       path: '/loading'
       fullPath: '/loading'
       preLoaderRoute: typeof LoadingLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/land': {
+      id: '/land'
+      path: '/land'
+      fullPath: '/land'
+      preLoaderRoute: typeof LandLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/header': {
@@ -440,6 +460,7 @@ const rootRouteChildren: RootRouteChildren = {
   FooterLazyRoute: FooterLazyRoute,
   FootersLazyRoute: FootersLazyRoute,
   HeaderLazyRoute: HeaderLazyRoute,
+  LandLazyRoute: LandLazyRoute,
   LoadingLazyRoute: LoadingLazyRoute,
   LockscreenLazyRoute: LockscreenLazyRoute,
   NotfoundLazyRoute: NotfoundLazyRoute,

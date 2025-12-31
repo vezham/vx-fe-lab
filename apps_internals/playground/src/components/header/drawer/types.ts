@@ -1,13 +1,13 @@
 import { RefObject } from 'react'
 
-import { HeaderNavProps } from '../types'
+import { HeaderNavItem } from '../types'
 
 export interface HeaderDrawerProps {
   isOpen: boolean
   onOpenChange: (open: boolean) => void
   placement: 'top' | 'bottom'
   activeDrawerId: string | null
-  nav?: HeaderNavProps
+  nav?: HeaderNavItem[]
   closeDrawer: () => void
   drawerRef: RefObject<HTMLDivElement>
 }
