@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { forwardRef } from '@vezham/react-utils'
 import {
   Button,
+  Image,
   Link,
   Navbar,
   NavbarBrand,
@@ -103,7 +104,7 @@ const Header = forwardRef<'nav', HeaderProps>((props, ref) => {
                     brand.logo.startsWith('/') ||
                     /\.(png|jpe?g|svg|webp)$/.test(brand.logo) ? (
                       <>
-                        <img
+                        <Image
                           sizes="sm"
                           src={brand.logo}
                           alt={brand.name ?? 'Logo'}
