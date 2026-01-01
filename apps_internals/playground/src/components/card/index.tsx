@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react'
 
-import { forwardRef } from '@vezham/react-utils'
+import { cn, forwardRef } from '@vezham/react-utils'
 import { Card, CardBody, CardFooter, CardHeader } from '@vezham/react/v2'
 
 import { Button } from '../button'

@@ -10,35 +10,38 @@ const cardData = [
     title: 'Google Integration',
     description: [
       'Simply log into your google account then seamlessly integrate and mirror your planned meetings.'
-    ]
+    ],
+    align: 'left'
   },
   {
     icon: { name: 'mdi:google' },
     title: 'Google Integration',
     description: [
       'Simply log into your google account then seamlessly integrate and mirror your planned meetings.'
-    ]
+    ],
+    align: 'right'
   },
   {
     icon: { name: 'mdi:google' },
     title: 'Google Integration',
     description: [
       'Simply log into your google account then seamlessly integrate and mirror your planned meetings.'
-    ]
+    ],
+    align: 'center'
   }
-  // {
-  //     logo: { src: Img, alt: "Frontend Radio" },
-  //     title: "Google Integration",
-  //     subtitle: 'google',
-  //     layout: 'header',
-  //     align: 'left',
-  //     description: [
-  //         "Simply log into your google account then seamlessly integrate and mirror your planned meetings."
-  //     ],
-  //     actions: [{ label: "Notify Me", variant: 'solid', color: 'primary', onClick: () => console.log("Notify") },
-  //     { label: "Subscribe", variant:'solid', color:'danger',  onClick: () => console.log("Notify") }],
+  //   {
+  //       logo: { src: Img, alt: "Frontend Radio" },
+  //       title: "Google Integration",
+  //       subtitle: 'google',
+  //       layout: 'header',
+  //       align: 'right',
+  //       description: [
+  //           "Simply log into your google account then seamlessly integrate and mirror your planned meetings."
+  //       ],
+  //       actions: [{ label: "Notify Me", variant: 'solid', color: 'primary', onClick: () => console.log("Notify") },
+  //       { label: "Subscribe", variant:'solid', color:'danger',  onClick: () => console.log("Notify") }],
 
-  // },
+  //   },
   // {
   //     logo: { src: Img, alt: "Frontend Radio" },
   //     title: "Google Integration",
@@ -68,22 +71,22 @@ const cardData = [
   //     // hasImage:true
 
   // },
-  // {
-  //     logo: { src: Img, alt: "Frontend Radio" },
-  //     image:{src: Cartoon, alt: 'Error'},
-  //     title: "Google Integration",
-  //     subtitle: 'google',
-  //     layout: 'header',
-  //     align: 'left',
-  //     description: [
-  //         "Simply log into your google account then seamlessly integrate and mirror your planned meetings."
-  //     ],
-  //     actions: [{ label: "Notify Me", variant: 'solid', color: 'primary', onClick: () => console.log("Notify") },
-  //     { label: "Subscribe", variant: 'solid', color: 'danger', onClick: () => console.log("Notify") }],
-  //     imageAsBackground: false,
-  //     // hasImage:true
+  //   {
+  //       logo: { src: Img, alt: "Frontend Radio" },
+  //       image:{src: Cartoon, alt: 'Error'},
+  //       title: "Google Integration",
+  //       subtitle: 'google',
+  //       layout: 'header',
+  //       align: 'left',
+  //       description: [
+  //           "Simply log into your google account then seamlessly integrate and mirror your planned meetings."
+  //       ],
+  //       actions: [{ label: "Notify Me", variant: 'solid', color: 'primary', onClick: () => console.log("Notify") },
+  //       { label: "Subscribe", variant: 'solid', color: 'danger', onClick: () => console.log("Notify") }],
+  //       imageAsBackground: false,
+  //       // hasImage:true
 
-  // },
+  //   },
   // {
   //     logo: { src: Img, alt: "Frontend Radio" },
   //     image:{src: Cartoon, alt: 'Error'},
@@ -116,22 +119,22 @@ const cardData = [
   //     hasImage:false
 
   // },
-  // {
-  //     logo: { src: Img, alt: "Frontend Radio" },
-  //     image: { src: Cartoon, alt: 'Error' },
-  //     title: "Google Integration",
-  //     subtitle: 'google',
-  //     layout: 'imageAsBackground',
-  //     align: 'left',
-  //     description: [
-  //         "Simply log into your google account then seamlessly integrate and mirror your planned meetings."
-  //     ],
-  //     actions: [{ label: "Notify Me", variant: 'solid', color: 'primary', onClick: () => console.log("Notify") },
-  //     ],
-  //     imageAsBackground: true,
-  //     hasImage: false
+  //   {
+  //       logo: { src: Img, alt: "Frontend Radio" },
+  //       image: { src: Cartoon, alt: 'Error' },
+  //       title: "Google Integration",
+  //       subtitle: 'google',
+  //       layout: 'imageAsBackground',
+  //       align: 'left',
+  //       description: [
+  //           "Simply log into your google account then seamlessly integrate and mirror your planned meetings."
+  //       ],
+  //       actions: [{ label: "Notify Me", variant: 'solid', color: 'primary', onClick: () => console.log("Notify") },
+  //       ],
+  //       imageAsBackground: true,
+  //       hasImage: false
 
-  // }
+  //   }
 ]
 
 const Work = () => {
