@@ -6,7 +6,7 @@ const tva = tv({
     navbarBase: 'max-w-none',
     navbarWrapper: 'max-w-none',
     brand: 'flex items-center gap-2 pl-2',
-    brandImage: 'h-5 w-auto',
+    brandImage: 'h-5 w-full rounded-none',
     brandIcon: 'h-6 w-6',
     brandName: 'text-default-800 dark:text-default-400 text-xl font-bold',
     nav: 'items-center gap-6',
@@ -48,6 +48,8 @@ const tva = tv({
       default: {
         navbarWrapper: 'bg-background/80 backdrop-blur-md'
       },
+      transparent: { navbarWrapper: 'bg-transparent' },
+
       inherit: { navbarWrapper: 'bg-inherit' },
       current: { navbarWrapper: 'bg-current' },
       black: { navbarWrapper: 'bg-black' },

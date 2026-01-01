@@ -54,12 +54,14 @@ const CardFeatured = forwardRef<'div', Props>((props, ref) => {
                 </p>
                 <h4 className="text-xl font-medium text-white/90">{title}</h4>
               </CardHeader>
+
               <Image
                 removeWrapper
                 alt="Card background"
                 className="z-0 h-full w-full object-cover"
                 src={image_url}
               />
+
               <CardFooter className="border-default-600 dark:border-default-100 absolute bottom-0 z-10 border-t-1 bg-black/40">
                 <div className="flex grow items-center gap-2">
                   {app_icon && (

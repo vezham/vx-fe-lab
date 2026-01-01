@@ -6,22 +6,22 @@ const tva = tv({
   },
   variants: {
     variant: {
-      title: 'text-foreground my-1 text-base font-bold lg:text-xl',
-      title1: 'text-foreground my-1 text-base font-medium lg:text-lg',
-      subtitle: 'text-default-200 my-1 text-sm font-semibold lg:text-base',
+      title: 'text-foreground my-1 font-bold',
+      title1: 'text-foreground my-1 font-medium',
+      subtitle: 'text-default-200 my-1 font-semibold',
       label: 'my-1 text-sm',
-      paragraph: 'text-foreground my-1 text-xs',
+      paragraph: 'text-foreground my-1 text-sm',
       disable: 'text-default-300 my-1 text-sm',
       error: 'text-danger-500 my-1 text-sm'
     },
     color: {
       none: '',
-      default: 'text-default-foreground',
-      primary: 'text-primary-foreground',
-      success: 'text-success-foreground',
-      warning: 'text-warning-foreground',
-      danger: 'text-danger-foreground',
-      info: 'text-info-foreground'
+      default: 'text-default',
+      primary: 'text-primary',
+      success: 'text-success',
+      warning: 'text-warning',
+      danger: 'text-danger',
+      info: 'text-info'
     },
     vc: {
       none: '',
@@ -31,9 +31,9 @@ const tva = tv({
       mode: 'text-black dark:!text-white'
     },
     size: {
-      sm: 'text-sm',
-      md: 'text-md',
-      lg: 'text-lg'
+      sm: 'text-xl sm:text-2xl md:text-3xl',
+      md: 'text-xl sm:text-2xl md:text-4xl',
+      lg: 'text-xl sm:text-2xl md:text-5xl'
     },
     align: {
       center: 'text-center',
@@ -45,7 +45,7 @@ const tva = tv({
     variant: 'paragraph',
     vc: 'none',
     color: 'none',
-    size: 'md',
+    size: 'lg',
     align: 'left'
   }
 })

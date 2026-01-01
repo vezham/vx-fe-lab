@@ -5,6 +5,7 @@ import { HeaderProps } from '../../components/header/types'
 import { HeroSection } from '../../layouts/land-hero'
 import { HeroProps } from '../../layouts/land-hero/types'
 import { AutoLayout } from '../../layouts/v-auto-layout'
+import { Work } from './work'
 
 const Page = () => {
   const headerData: HeaderProps = {
@@ -98,18 +99,19 @@ const Page = () => {
 
   return (
     <AutoLayout>
-      <div>
-        <Header
-          className="lg:p-8"
-          {...headerData}
-          orientation="horizontal"
-          position="left"
-          placement="top"
-          items={5}
-          variant="white"
-        />
-      </div>
+      <Header
+        className="lg:p-8"
+        {...headerData}
+        orientation="horizontal"
+        position="left"
+        placement="top"
+        items={5}
+        variant="white"
+      />
       <HeroSection className="pt-16 lg:pt-28" {...heroData} />
+      <div>
+        <Work />
+      </div>
     </AutoLayout>
   )
 }
