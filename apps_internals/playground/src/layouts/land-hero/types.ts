@@ -11,8 +11,6 @@ import { tvProps, tvSlots, tva } from './variant'
 
 type TextAlign = 'left' | 'center' | 'right'
 type SizeVariant = 'sm' | 'md' | 'lg' | 'xl'
-type Orientation = 'horizontal' | 'vertical'
-type Direction = 'ltr' | 'rtl'
 
 export type submit = {
   label?: string
@@ -48,9 +46,7 @@ interface HeroImage {
 }
 
 interface HeroLayoutConfig {
-  orientation?: Orientation
   gap?: number | string
-  direction?: Direction
   fullHeight?: boolean
   padding?: string | number
   contentWidth?: string | number
@@ -192,8 +188,6 @@ export type {
   HeroContent,
   HeroImage,
   HeroLayoutConfig,
-  Direction,
-  Orientation,
   TextAlign,
   SizeVariant
 }

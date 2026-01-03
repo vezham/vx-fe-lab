@@ -1,13 +1,4 @@
-import {
-  JSXElementConstructor,
-  Key,
-  ReactElement,
-  ReactNode,
-  ReactPortal
-} from 'react'
-
 import { forwardRef } from '@vezham/react-utils'
-import { cn } from '@vezham/react-utils'
 import { Image, Link } from '@vezham/react/v2'
 
 import { Button } from '../../components/button'

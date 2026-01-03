@@ -11,7 +11,7 @@ const cardData = [
     description: [
       'Simply log into your google account then seamlessly integrate and mirror your planned meetings.'
     ],
-    align: 'left'
+    align: 'center'
   },
   {
     icon: { name: 'mdi:google' },
@@ -19,7 +19,7 @@ const cardData = [
     description: [
       'Simply log into your google account then seamlessly integrate and mirror your planned meetings.'
     ],
-    align: 'right'
+    align: 'center'
   },
   {
     icon: { name: 'mdi:google' },
@@ -142,9 +142,14 @@ const Work = () => {
     <div>
       <div className="flex flex-col items-center justify-center">
         <Text content=" How it works ? " variant="title" size="lg"></Text>
-        <Text content="__" variant="title" color="primary" size="lg"></Text>
+        <Text
+          className="-mt-4 md:-mt-6"
+          content="__"
+          variant="title"
+          color="primary"
+          size="lg"></Text>
       </div>
-      <CardLayout columns={4}>
+      <CardLayout columns={4} gap="xl" padding="md">
         {cardData.map((cardProps, index) => (
           <LandCard key={index} {...cardProps} />
         ))}

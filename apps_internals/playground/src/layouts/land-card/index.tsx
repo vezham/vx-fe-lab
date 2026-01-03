@@ -1,33 +1,16 @@
-import { ReactNode } from 'react'
+import { forwardRef } from '@vezham/react-utils'
 
-import { cn } from '@vezham/react-utils'
+import { Props, useProps } from './types'
 
-export type Columns = 1 | 2 | 3 | 4
+const CardLayout = forwardRef<'div', Props>((props, ref) => {
+  const { Component, getBaseProps, children } = useProps({
+    ...props,
+    ref
+  })
 
-interface CardLayoutProps {
-  columns?: Columns
-  className?: string
-  children: ReactNode
-}
+  return <Component {...getBaseProps()}>{children}</Component>
+})
 
-const columnMap: Record<Columns, string> = {
-  1: 'grid grid-cols-1 gap-4',
-  2: 'grid grid-cols-1 md:grid-cols-2 gap-4',
-  3: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4',
-  4: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'
-}
-
-const CardLayout = ({ columns = 3, className, children }: CardLayoutProps) => {
-  return (
-    <div
-      className={cn(
-        'mx-2 my-6 sm:mx-6 md:my-12',
-        columnMap[columns],
-        className
-      )}>
-      {children}
-    </div>
-  )
-}
+CardLayout.displayName = 'CardLayout'
 
 export { CardLayout }
