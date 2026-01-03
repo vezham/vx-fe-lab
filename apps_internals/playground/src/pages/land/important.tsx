@@ -1,6 +1,6 @@
-import { Carousel } from '../../components/Carousel'
-import { CAROUSEL_IMAGES } from '../../components/Carousel/data'
 import { Button } from '../../components/button'
+import { Carousel } from '../../components/carousel'
+import { CAROUSEL_IMAGES } from '../../components/carousel/data'
 import { Text } from '../../components/text'
 
 const Important = () => {

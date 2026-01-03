@@ -6,6 +6,7 @@ import { HeroSection } from '../../layouts/land-hero'
 import { HeroProps } from '../../layouts/land-hero/types'
 import { AutoLayout } from '../../layouts/v-auto-layout'
 import { Important } from './important'
+import { Pricing } from './pricing'
 import { Work } from './work'
 
 const Page = () => {
@@ -110,12 +111,9 @@ const Page = () => {
         variant="white"
       />
       <HeroSection className="pt-16 lg:pt-28" {...heroData} />
-      <div>
-        <Work />
-      </div>
-      <div>
-        <Important />
-      </div>
+      <Work />
+      <Important />
+      <Pricing />
     </AutoLayout>
   )
 }

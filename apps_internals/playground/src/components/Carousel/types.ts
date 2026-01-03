@@ -5,12 +5,11 @@ import { ReactRef, useDOMRef } from '@vezham/react-utils'
 import {
   HTMLHeroUIProps,
   PropGetter,
+  SlotsToClasses,
+  cn,
   mapPropsVariants
 } from '@vezham/react-utils'
-import { cn } from '@vezham/react-utils'
-import { SlotsToClasses } from '@vezham/react-utils'
 
-import { ImageCard } from '../../components/Image'
 import { tvProps, tvSlots, tva } from './variant'
 
 interface CarouselImage {
@@ -188,4 +187,4 @@ const useProps = (originalProps: Props) => {
 }
 
 export { useProps }
-export type { Props, CarouselImage }
+export type { CarouselImage, Props }
