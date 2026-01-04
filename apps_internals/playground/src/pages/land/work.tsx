@@ -149,7 +149,7 @@ const Work = () => {
           color="primary"
           size="lg"></Text>
       </div>
-      <CardLayout columns={4} gap="xl" padding="md">
+      <CardLayout columns={4} gap="xl" padding="md" className="px-5">
         {cardData.map((cardProps, index) => (
           <LandCard key={index} {...cardProps} />
         ))}

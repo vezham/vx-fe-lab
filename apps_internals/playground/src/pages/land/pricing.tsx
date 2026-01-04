@@ -28,7 +28,7 @@ const Pricing = () => {
           className="text-center"
           content="Try post meeting surveys now and avoid wasting time."></Text>
       </div>
-      <div>
+      <div className="px-5">
         <PricingComp />
       </div>
     </div>

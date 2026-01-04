@@ -13,6 +13,12 @@ import { tvProps, tvSlots, tva } from './variant'
 
 export type Columns = 1 | 2 | 3 | 4
 export type Orientation = 'horizontal' | 'vertical'
+export type variant =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'transparent'
+  | 'none'
 
 interface Props extends tvProps, HTMLHeroUIProps<'div'> {
   ref?: ReactRef<HTMLDivElement | null>

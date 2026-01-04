@@ -2,9 +2,16 @@ import { VariantProps, tv } from '@vezham/react-utils'
 
 const tva = tv({
   slots: {
-    base: 'mx-2 my-6 sm:mx-6 md:my-12'
+    base: ''
   },
   variants: {
+    variant: {
+      default: 'bg-default-100',
+      primary: 'bg-primary',
+      secondary: 'bg-secondary',
+      transparent: 'bg-transparent',
+      none: ''
+    },
     columns: {
       1: '',
       2: '',
@@ -78,7 +85,7 @@ const tva = tv({
   defaultVariants: {
     columns: 3,
     orientation: 'none',
-    gap: 'md',
+    gap: 'none',
     padding: 'none'
   }
 })

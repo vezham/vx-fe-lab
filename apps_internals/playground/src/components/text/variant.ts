@@ -31,9 +31,9 @@ const tva = tv({
       mode: 'text-black dark:!text-white'
     },
     size: {
-      sm: 'text-xl sm:text-2xl md:text-3xl',
-      md: 'text-xl sm:text-2xl md:text-4xl',
-      lg: 'text-xl sm:text-2xl md:text-4xl lg:text-5xl'
+      sm: 'text-2xl md:text-3xl',
+      md: 'text-2xl md:text-4xl',
+      lg: 'text-2xl md:text-4xl lg:text-5xl'
     },
     align: {
       center: 'text-center',

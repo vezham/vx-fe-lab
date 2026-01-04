@@ -7,6 +7,7 @@ import { HeroProps } from '../../layouts/land-hero/types'
 import { AutoLayout } from '../../layouts/v-auto-layout'
 import { Important } from './important'
 import { Pricing } from './pricing'
+import { Rate } from './rate'
 import { Work } from './work'
 
 const Page = () => {
@@ -114,6 +115,7 @@ const Page = () => {
       <Work />
       <Important />
       <Pricing />
+      <Rate />
     </AutoLayout>
   )
 }
