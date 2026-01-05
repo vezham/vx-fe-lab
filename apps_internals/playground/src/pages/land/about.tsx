@@ -27,7 +27,6 @@ const About = () => {
       />
 
       <div className="mt-6 grid w-full grid-cols-1 items-center gap-6 md:grid-cols-12 md:gap-16">
-        {/* Text content */}
         <div className="col-span-1 w-full md:col-span-9">
           <Text
             content="Picture this… you’re in your weekly meeting and you ask a question."
@@ -59,7 +58,6 @@ const About = () => {
           />
         </div>
 
-        {/* Image */}
         <div className="col-span-1 flex w-full items-center justify-center md:col-span-2">
           <Image radius="none" src={AboutLogo} className="h-auto max-w-full" />
         </div>
