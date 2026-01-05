@@ -10,7 +10,7 @@ const tva = tv({
       title1: 'text-foreground my-1 font-medium',
       subtitle: 'text-default-200 my-1 font-semibold',
       label: 'my-1 text-sm',
-      paragraph: 'text-foreground my-1',
+      paragraph: 'text-foreground my-1 text-sm',
       disable: 'text-default-300 my-1 text-sm',
       error: 'text-danger-500 my-1 text-sm'
     },

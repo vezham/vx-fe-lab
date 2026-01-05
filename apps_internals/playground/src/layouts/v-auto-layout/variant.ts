@@ -86,6 +86,7 @@ const tva = tv({
   },
   defaultVariants: {
     direction: 'horizontal',
+    align: 'center',
     spacer: 'none',
     padding: 'none',
     border: 'none',
