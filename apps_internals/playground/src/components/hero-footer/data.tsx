@@ -1,6 +1,5 @@
 // components/footer/footer.data.ts
 import { Icon } from '@iconify/react'
-import React from 'react'
 
 import type { FooterNavigation, SocialIconProps } from './types'
 

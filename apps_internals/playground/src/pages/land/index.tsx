@@ -1,5 +1,11 @@
 import cartoon from '../../../public/assets/CARTOON.png'
 import img from '../../../public/assets/LOGO.png'
+import { Footer } from '../../components/basic-footer'
+import {
+  defaultColumns,
+  iconColumns,
+  titleColumns
+} from '../../components/basic-footer/data'
 import { Header } from '../../components/header'
 import { HeaderProps } from '../../components/header/types'
 import { HeroSection } from '../../layouts/land-hero'
@@ -120,6 +126,7 @@ const Page = () => {
       <Rate />
       <About />
       <Form />
+      <Footer columns={titleColumns} />
     </AutoLayout>
   )
 }

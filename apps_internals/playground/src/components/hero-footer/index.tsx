@@ -67,7 +67,6 @@ const Footers = forwardRef<'footer', Props>((props, ref) => {
     <footer {...getBaseProps()}>
       <div {...getContainerProps()}>
         <div {...getGridWrapperProps()}>
-          {/* Logo + Socials */}
           <div {...getLogoWrapperProps()}>
             <Image
               alt="Brand Logo"
@@ -90,7 +89,6 @@ const Footers = forwardRef<'footer', Props>((props, ref) => {
             </div>
           </div>
 
-          {/* Footer Grid */}
           <div {...getGridTwoColProps()}>
             <div {...getGridInnerProps()}>
               <div>
@@ -124,7 +122,6 @@ const Footers = forwardRef<'footer', Props>((props, ref) => {
           </div>
         </div>
 
-        {/* Subscribe Section */}
         <div {...getSubscribeWrapperProps()}>
           <div>
             <h3 {...getSubscribeTitleProps()}>Subscribe to our newsletter</h3>
@@ -162,7 +159,6 @@ const Footers = forwardRef<'footer', Props>((props, ref) => {
           </form>
         </div>
 
-        {/* Alert */}
         {showAlert !== 'default' && (
           <div {...getAlertWrapperProps()}>
             <Alert
@@ -186,7 +182,6 @@ const Footers = forwardRef<'footer', Props>((props, ref) => {
           </div>
         )}
 
-        {/* Footer Bottom */}
         <div {...getFooterBottomProps()}>
           <p {...getFooterTextProps()}>
             &copy; {currentYear} Vezham Technologies Private Limited.&nbsp;All

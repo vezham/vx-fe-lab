@@ -5,7 +5,7 @@ import { Text } from '../../components/text'
 
 const Form = () => {
   return (
-    <div className="my-12">
+    <div className="mt-12">
       <div className="grid w-full grid-cols-1 gap-6 lg:grid-cols-12">
         <div className="bg-primary col-span-1 w-full p-16 lg:col-span-4">
           <Text
