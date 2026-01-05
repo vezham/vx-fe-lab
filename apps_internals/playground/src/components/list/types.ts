@@ -22,7 +22,7 @@ const iconMap: Record<ListStyle, string> = {
   square: 'mdi:square',
   box: 'mdi:checkbox-blank-outline',
   triangle: 'mdi:triangle',
-  circle: 'mdi:circle',
+  circle: 'mdi:circle-outline',
   star: 'mdi:star'
 }
 

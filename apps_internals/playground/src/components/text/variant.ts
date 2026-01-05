@@ -21,7 +21,8 @@ const tva = tv({
       success: 'text-success',
       warning: 'text-warning',
       danger: 'text-danger',
-      info: 'text-info'
+      info: 'text-info',
+      white: 'text-white'
     },
     vc: {
       none: '',

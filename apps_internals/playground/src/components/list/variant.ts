@@ -5,7 +5,7 @@ const tva = tv({
     base: 'my-4',
     title: 'mb-1 text-base',
     list: 'space-y-3',
-    list_item: 'flex items-start gap-3',
+    list_item: 'flex items-start gap-3 pl-5',
     icon: 'mt-1 shrink-0 text-base',
     label: 'font-medium',
     content: 'text-sm text-gray-500'

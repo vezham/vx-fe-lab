@@ -6,6 +6,7 @@ import { HeroSection } from '../../layouts/land-hero'
 import { HeroProps } from '../../layouts/land-hero/types'
 import { AutoLayout } from '../../layouts/v-auto-layout'
 import { About } from './about'
+import { Form } from './form'
 import { Important } from './important'
 import { Pricing } from './pricing'
 import { Rate } from './rate'
@@ -118,6 +119,7 @@ const Page = () => {
       <Pricing />
       <Rate />
       <About />
+      <Form />
     </AutoLayout>
   )
 }
