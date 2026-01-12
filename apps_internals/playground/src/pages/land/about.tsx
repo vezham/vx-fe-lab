@@ -26,7 +26,7 @@ const About = () => {
         size="lg"
       />
 
-      <div className="mt-6 grid w-full grid-cols-1 items-center gap-6 md:grid-cols-12 md:gap-16">
+      <div className="mt-6 grid w-full grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-16">
         <div className="col-span-1 w-full md:col-span-9">
           <Text
             content="Picture this… you’re in your weekly meeting and you ask a question."

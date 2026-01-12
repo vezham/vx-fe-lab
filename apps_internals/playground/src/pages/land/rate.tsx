@@ -22,7 +22,7 @@ const Rate = () => {
           </div>
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden sm:block">
           <Image src={Pattern} alt="Image error" />
         </div>
       </CardLayout>

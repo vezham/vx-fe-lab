@@ -51,7 +51,7 @@ const tva = tv({
       orientation: 'none',
       columns: 2,
       class: {
-        base: 'grid grid-cols-1 md:grid-cols-2'
+        base: 'grid grid-cols-1 sm:grid-cols-2'
       }
     },
     {

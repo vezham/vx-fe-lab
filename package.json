@@ -10,6 +10,7 @@
   "author": "Vx FE Devs <fe-developers@vezham.com>",
   "scripts": {
     "@vx/ws:format": "pnpm nx run @vx:@vx-ws/format",
+    "command": "nx reset --only-demon",
     "postinstall": "husky && pnpm @vx/ws:format",
     "prepare": "husky"
   },

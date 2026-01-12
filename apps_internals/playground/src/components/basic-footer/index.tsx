@@ -183,11 +183,10 @@ const Footer = forwardRef<'footer', Props>((props, ref) => {
     if (column.type === 'links') {
       return (
         <div key={index} {...getListColumnProps()}>
-          <div {...getListTitleWrapperProps()}>
-            <h3 {...getListTitleProps()}>{column.title}</h3>
-          </div>
-
           <ul {...getListUlProps()}>
+            <div {...getListTitleWrapperProps()}>
+              <h3 {...getListTitleProps()}>{column.title}</h3>
+            </div>
             {column.links?.map((item: any, i: number) => (
               <li key={i} {...getListItemProps()}>
                 <Link

@@ -4,11 +4,11 @@ const tva = tv({
   slots: {
     base: 'w-full bg-blue-950',
     container: 'px-4 pt-8 pb-24 sm:px-6 lg:px-8',
-    grid_wrapper: 'grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-12',
+    grid_wrapper: 'grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-12',
 
-    logo_column: 'col-span-full sm:col-span-2 lg:col-span-4',
+    logo_column: 'col-span-full sm:col-span-2 md:col-span-4',
 
-    list_column: 'col-span-1 col-span-full lg:col-span-2',
+    list_column: 'md:col-span-2',
 
     logo_wrapper: 'flex flex-col items-start space-y-4',
     tagline: 'text-default-500 max-w-xs text-sm',
